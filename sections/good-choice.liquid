@@ -1,0 +1,117 @@
+<section class="features">
+  <h2 class="features-title">{{ section.settings.top_title  }}</h2>
+   
+  <div class="features-grid">
+    {% for block in section.blocks %}
+      {% case block.type  %}
+      {% when 'Good_Choice' %}
+    <div class="feature-item">
+      {% if block.settings.item_image != blank %}
+        {{ block.settings.item_image | image_url : width : 55 | image_tag : alt : block.settings.item_text  }}
+      {% endif %}
+      {% if block.settings.item_text != blank %}
+      <p>{{ block.settings.item_text }}</p>
+      {% endif %}
+    </div>
+    {% endcase %}
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+.features {
+  text-align: center;
+  padding: 0px 10px;
+  background-color: #FFE2D233;
+}
+
+.features-title {
+  position : relative;
+  top : 20px;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 100px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  justify-content: center;   
+  align-items: center;      
+  justify-items: center; 
+}
+
+.feature-item img {
+  margin-bottom: 10px;
+  width : 60px;
+  height: 63px;
+}
+
+.feature-item p {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .features-title {
+        margin-bottom: 40px;
+        font-size: 22px;
+        font-weight: 500;
+  }
+}
+@media (min-width : 724px){
+  .features{
+     height : 324px;
+  }
+  
+}
+@media (max-width: 600px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "good Section",
+  "tag": "section",
+  "class": "features",
+  "settings": [
+     { 
+        "type" : "text",
+        "id" : "top_title",
+        "label" : "Top Heading"
+     }
+  ],
+  "blocks": [
+      {
+      "type" : "Good_Choice",
+      "name" : "Good_Choice",
+       "settings": [
+        {
+           "type" : "image_picker",
+           "id" : "item_image",
+           "label" : "Product image"
+        },
+        {
+          "type" : "text",
+          "id": "item_text",
+          "label": "product title"
+        }
+       ]
+      }
+  ],
+  "presets": [
+    {
+      "name": "good Section"
+    }
+  ]
+}
+{% endschema %}

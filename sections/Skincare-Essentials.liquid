@@ -1,0 +1,585 @@
+<style>
+      .skincare-essentials {
+        margin-top: 70px;
+        position: relative;
+      }
+      .product-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: #333;
+      text-align: left;
+      margin: 10px 0 5px;
+    }
+
+
+     .skincare-essentials  .swiper-slide{
+          margin-right: 0 !important;
+        }
+
+    .product-desc {
+      font-size: 14px;
+      font-weight: 300; /* lighter */
+      color: #555;
+      margin: 0 0 5px;
+      text-align: left;
+    }
+
+
+      .hero-wrapper {
+        position: relative;
+        width: 100%;
+      }
+
+      .hero-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .hero-wrapper::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+         z-index: 1;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+        box-sizing: border-box;
+      }
+
+     .skincare-essentials .swiper-pagination {
+         display : none;
+    }
+      .subtitle {
+        font-size: 13px;
+        color: #666;
+        margin: 0 0 5px;
+        text-align: left;
+      }
+
+      .heading {
+        color: #fff;
+        margin-top: 20px;
+        margin-left: 20px;
+      }
+
+      .heading h3 {
+        font-size: 62px;
+        opacity: 0.7;
+        color: #fff;
+        margin: 0;
+        font-weight: 600;
+        letter-spacing: 2px;
+        line-height: 1;
+      }
+
+      .heading h1 {
+        font-size: 90px;
+        margin: 0;
+        color: #fff;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .toggle-buttons {
+        position: absolute;
+        top: 50px;
+        right: 60px;
+        background: #c28d5d;
+        border-radius: 12px;
+        padding: 18px 30px;
+        display: flex;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .toggle {
+        background: transparent;
+        border: none;
+        color: white;
+        border-radius: 10px;
+        font-size: 21px;
+        padding: 8px 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .toggle.active {
+        background: white;
+        color: #c28d5d;
+      }
+
+      .product-grid {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        gap: 20px;
+      }
+
+      .product-card {
+        background: #fff;
+        border-radius: 14px;
+        padding: 10px;
+        text-align: center;
+        {% comment %} height: auto; {% endcomment %}
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 200px;
+        transition: transform 0.2s ease;
+        box-sizing: border-box;
+
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .product-card img {
+        border-radius: 10px;
+        height: 233px;
+      }
+      .product-card h4 {
+        margin: 10px 0 5px;
+        font-size: 17px;
+        font-weight: 600;
+        color: #333;
+        text-align: left;
+      }
+
+      .price {
+        font-weight: bold;
+        margin: 5px 0 10px;
+        color: black;
+        text-align: left;
+      }
+
+      .add-to-bag {
+        background: #fff;
+        border: 1px solid #c28d5d;
+        color: #c28d5d;
+        padding: 6px 14px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 13px;
+        width: 100%;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+      }
+
+      .add-to-bag:hover {
+        background: #c28d5d;
+        color: #fff;
+      }
+
+      /* Mobile Swiper Styles */
+      .mobile-products {
+        display: none;
+      }
+
+      .skincare-essentials .swiper {
+       width: 100%;
+       max-width: 50%;
+       margin-right: 0px;
+      }
+
+      .swiper-slide {
+        display: flex;
+        justify-content: center;
+      }
+
+      .swiper-pagination {
+        position: relative;
+        margin-top: 15px;
+      }
+
+      .swiper-pagination-bullet-active {
+        background: #c28d5d;
+      }
+
+      /* ========== MOBILE RESPONSIVE ========== */
+      @media (max-width: 768px) {
+
+    
+    
+  
+
+        .skincare-essentials {
+          margin-top: 40px;
+        }
+        .skincare-essentials .swiper-pagination {
+           display : block;
+        }
+         .heading {
+          margin-bottom: 20px;
+        }
+       .skincare-essentials .swiper {
+          width: 90%;
+          margin: 0;
+          max-width: unset;
+          position: absolute;
+          right: 0;
+          top: 63%;
+          left: 55%;
+          transform: translate(-50%, -50%);
+        }
+
+        /* Make overlay sit on top of the black image on mobile as well */
+        .overlay {
+          padding: 20px;
+          position: absolute; /* now absolute so it sits over the image */
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          box-sizing: border-box;
+          display: block;
+          z-index: 2;
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
+
+        .hero-wrapper::after {
+          height: 100%;
+        }
+
+        /* heading positioned near top-left over image */
+        .heading {
+          position: absolute;
+          top: 51px;
+          left: 20px;
+          margin: 0;
+        }
+
+        .heading h3 {
+          font-size: 28px;
+          letter-spacing: 1px;
+          margin: 0 0 6px 0;
+          opacity: 0.9;
+        }
+
+        .heading h1 {
+          font-size: 36px;
+          letter-spacing: 2px;
+          margin: 0;
+          line-height: 1.05;
+        }
+
+        /* toggle buttons over image top-right */
+        .toggle-buttons {
+           position: absolute;
+           left: 50%;
+           Top : 170px;
+           right: auto; /* remove right */
+           transform: translateX(-50%);
+          display: flex;
+          gap: 6px;
+          padding: 6px;
+          background: rgba(194, 141, 93, 0.95);
+          border-radius: 10px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .toggle {
+          font-size: 12px;
+          height: 28px;
+          padding: 5px 10px;
+          min-width: 60px;
+        }
+       .skincare-essentials  .swiper-slide{
+          min-width : 230px;
+          margin-right: 0px;
+        }
+
+        .desktop-products {
+          display: none;
+        }
+        .product-card img {
+            border-radius: 10px;
+            height: 250px;
+          }
+
+        /* show mobile swiper ON TOP of image near bottom */
+        .mobile-products {
+          display: block;
+          position: absolute;
+          bottom: 18px;
+          left: 0;
+          width: 100%;
+          z-index: 3;
+          box-sizing: border-box;
+          padding: 0 12px;
+          pointer-events: auto;
+        }
+
+        .product-card h4 {
+          font-size: 16px;
+        }
+        .product-card{
+          width: 220px;
+          height: 403px;
+        }
+
+      }
+
+        .subtitle {
+          font-size: 12px;
+        }
+
+        .add-to-bag {
+          font-size: 12px;
+          padding: 6px 12px;
+        }
+      }
+
+      /* ========== TABLET RESPONSIVE ========== */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .heading {
+          position: static;
+          margin-bottom: -145px;
+        }
+
+        .heading h3 {
+          font-size: 48px;
+        }
+
+        .heading h1 {
+          font-size: 64px;
+        }
+
+        .toggle-buttons {
+          position: static;
+          align-self: flex-end;
+          margin-bottom: 20px;
+        }
+        .skincare-essentials .swiper {
+          margin-right : 0;
+        }
+
+        .product-grid {
+          position: static;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+      }
+</style>
+
+<section class="skincare-essentials">
+  <div class="hero-wrapper">
+    <picture>
+      <source
+        media="(max-width: 768px)"
+        srcset="https://cdn.shopify.com/s/files/1/0702/2057/9035/files/fff.png?v=1757313651"
+      >
+      <img
+        height=""
+        width=""
+        src="https://cdn.shopify.com/s/files/1/0702/2057/9035/files/Mask_group_16.png?v=1756888694"
+        alt="Skincare Essentials"
+      >
+    </picture>
+
+    <div class="overlay">
+      <div class="heading">
+        <h3>{{ section.settings.heading_top }}</h3>
+        <h1>{{ section.settings.heading_main }}</h1>
+      </div>
+
+      <div class="toggle-buttons">
+        <button class="toggle active">MEN</button>
+        <button class="toggle">WOMEN</button>
+      </div>
+
+      <!-- Men Swiper -->
+      <div class="swiper product-swiper men-swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% assign prod = block.settings.product %}
+            {% if prod != blank %}
+              {% assign gender = prod.metafields.custom.gender | downcase %}
+              {% if gender == 'men' %}
+                <div class="swiper-slide" data-gender="{{ gender }}">
+                  <div class="product-card">
+                    {% if prod.featured_image != blank %}
+                      {{
+                        prod.featured_image
+                        | image_url: width: 300
+                        | image_tag: class: 'liquid-image', alt: prod.title
+                      }}
+                    {% elsif prod.images.size > 0 %}
+                      {{ prod.images[0] | image_url: width: 300 | image_tag: class: 'liquid-image', alt: prod.title }}
+                    {% endif %}
+
+                    <h4>{{ prod.title | strip_html | split: ' ' | slice: 0, 2 | join: ' ' }}</h4>
+                    <p class="product-desc">
+                      {{ prod.description | strip_html | split: ' ' | slice: 0, 2 | join: ' ' }}
+                    </p>
+                    <p class="price">
+                      {% if prod.selected_or_first_available_variant != blank %}
+                        {{ prod.selected_or_first_available_variant.price | money }}
+                      {% else %}
+                        {{ prod.price | money }}
+                      {% endif %}
+                    </p>
+                    <button class="add-to-bag">ADD TO BAG</button>
+                  </div>
+                </div>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <!-- Women Swiper -->
+      <div class="swiper product-swiper women-swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% assign prod = block.settings.product %}
+            {% if prod != blank %}
+              {% assign gender = prod.metafields.custom.gender | downcase %}
+              {% if gender == 'women' %}
+                <div class="swiper-slide" data-gender="{{ gender }}">
+                  <div class="product-card">
+                    {{
+                      prod.featured_image
+                      | image_url: width: 300
+                      | image_tag: class: 'liquid-image', alt: prod.title
+                    }}
+                    <h4>{{ prod.title | strip_html | split: ' ' | slice: 0, 2 | join: ' ' }}</h4>
+                    <p class="product-desc">
+                      {{ prod.description | strip_html | split: ' ' | slice: 0, 2 | join: ' ' }}
+                    </p>
+                    <p class="price">
+                      {% if prod.selected_or_first_available_variant != blank %}
+                        {{ prod.selected_or_first_available_variant.price | money }}
+                      {% else %}
+                        {{ prod.price | money }}
+                      {% endif %}
+                    </p>
+                    <button class="add-to-bag">ADD TO BAG</button>
+                  </div>
+                </div>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Swiper CSS + JS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // MEN Swiper
+    new Swiper('.product-swiper.men-swiper', {
+      slidesPerView: 2,
+      spaceBetween: 0,
+      pagination: {
+        el: '.men-swiper .swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        480: { slidesPerView: 1.5, spaceBetween: 10 },
+        640: { slidesPerView: 1.5, spaceBetween: 10 },
+        1024: { slidesPerView: 2, spaceBetween: 0 },
+        1280: { slidesPerView: 3, spaceBetween: 10 },
+      },
+    });
+
+    // WOMEN Swiper
+    new Swiper('.product-swiper.women-swiper', {
+      slidesPerView: 2,
+      spaceBetween: 0,
+      pagination: {
+        el: '.women-swiper .swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        480: { slidesPerView: 1.5, spaceBetween: 10 },
+        640: { slidesPerView: 1.5, spaceBetween: 10 },
+        1024: { slidesPerView: 2, spaceBetween: 0 },
+        1280: { slidesPerView: 3, spaceBetween: 10 },
+      },
+    });
+
+    // Gender toggle filter
+    const buttons = document.querySelectorAll('.toggle');
+    const menSwiper = document.querySelector('.men-swiper');
+    const womenSwiper = document.querySelector('.women-swiper');
+
+    // hide women by default
+    womenSwiper.style.display = 'none';
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        if (btn.textContent.trim().toLowerCase() === 'men') {
+          menSwiper.style.display = 'block';
+          womenSwiper.style.display = 'none';
+        } else {
+          menSwiper.style.display = 'none';
+          womenSwiper.style.display = 'block';
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Skincare Essentials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_top",
+      "label": "heading Top (H1)",
+      "default": "SKINCARE"
+    },
+    {
+      "type": "text",
+      "id": "heading_main",
+      "label": "heading main (H3)",
+      "default": "ESSENTIALS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Skincare Essentials"
+    }
+  ]
+}
+{% endschema %}

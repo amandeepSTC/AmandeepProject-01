@@ -1,0 +1,128 @@
+<style>
+      .shop-collection {
+    width: 100%;
+    max-width: 1800px; /* based on your screenshot width */
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .collection-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+
+  .swiper-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .swiper-slide {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .collection-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  .swiper-slide:hover .collection-image {
+    transform: scale(1.05);
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .swiper-slide:hover .overlay {
+    opacity: 1;
+  }
+
+  /* Swiper navigation */
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #000;
+    font-size: 20px;
+  }
+
+  .swiper-pagination-bullet {
+    background: #000;
+    opacity: 0.5;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #000;
+    opacity: 1;
+  }
+</style>
+
+<section class="shop-collection">
+  <h2 class="collection-title">SHOP OUR COLLECTION</h2>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        {{ 'product1.jpg' | image_url: width: 400 | image_tag: class: 'collection-image', alt: 'Product 1' }}
+        <div class="overlay">
+          <span>Sun Protection</span>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide">
+        {{ 'product2.jpg' | image_url: width: 400 | image_tag: class: 'collection-image', alt: 'Product 2' }}
+        <div class="overlay">
+          <span>Face Serum</span>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide">
+        {{ 'product3.jpg' | image_url: width: 400 | image_tag: class: 'collection-image', alt: 'Product 3' }}
+        <div class="overlay">
+          <span>Moisturizer</span>
+        </div>
+      </div>
+      <!-- Add more slides dynamically with Liquid -->
+    </div>
+
+    <!-- Navigation arrows -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- Pagination dots -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shop Collection",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Shop Collection"
+    }
+  ]
+}
+{% endschema %}

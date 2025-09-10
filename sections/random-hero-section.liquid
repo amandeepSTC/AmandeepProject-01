@@ -1,0 +1,164 @@
+<section class="hero">
+  <div class="hero-content">
+    <!-- Responsive Image -->
+    <picture>
+      <!-- Mobile image -->
+      <source
+        media="(max-width: 767px)"
+        srcset="{{ section.settings.hero_mobile_image | image_url: width: 1600 }}"
+      >
+      <!-- Desktop image -->
+      <img
+        width=""
+        height=""
+        class="hero-img"
+        src="{{ section.settings.hero_image | image_url: width: 1600 }}"
+        alt="Hero Banner"
+      >
+    </picture>
+
+    <!-- Overlay Content -->
+    <div class="pos desktop-text">
+      <h2>Introducing Premium Beauty</h2>
+      <button class="shop-btn">Shop Now</button>
+    </div>
+
+    <!-- Mobile Content (only visible on mobile) -->
+    <div class="pos mobile-text">
+      <h2>Introducing Premium Beauty</h2>
+      <p>it’s not magic, it’s clean beauty</p>
+      <button class="shop-btn">Shop Now</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    width: 100%;
+    position: relative;
+  }
+
+  .hero-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* overlay content base */
+  .pos {
+    position: absolute;
+    color: #fff;
+    z-index: 2;
+  }
+
+  /* desktop version */
+  .desktop-text {
+    width: 318px;
+    top: 15%;
+    left: 5%;
+  }
+
+  .desktop-text h2 {
+    font-size: 32px;
+    color : #ffffff;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  /* button */
+  .shop-btn {
+         background: #E16A28;
+          color: #fff;
+          padding: 8px 20px;
+          border: none;
+          border-radius: 25px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: 0.3s;
+          font-weight: 600;
+          height: 40px;
+          font-weight: 500;
+          max-width: 171px;
+          margin-top: 5px;
+  }
+
+  .shop-btn:hover {
+    background: #d65b0c;
+  }
+
+  /* hide mobile text on desktop */
+  .mobile-text {
+    display: none;
+  }
+
+  /* mobile styles */
+  @media (max-width: 767px) {
+    .desktop-text {
+      display: none;
+    }
+
+    .mobile-text {
+          display: flex;
+          flex-direction: column;
+          top: 10%;
+          color: #ffffff;
+          left: 7%;
+          width: 83%;
+    }
+
+    .mobile-text h2 {
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .mobile-text p {
+             font-size: 24px;
+          line-height: 1;
+          margin-top: 9px;
+          margin-bottom: 8px;
+    }
+
+    .shop-btn {
+     background: #E16A28;
+          color: #fff;
+          padding: 8px 20px;
+          border: none;
+          border-radius: 25px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: 0.3s;
+          font-weight: 600;
+          height: 40px;
+          font-weight: 500;
+          max-width: 171px;
+          margin-top: 5px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "random-hero-section",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_mobile_image",
+      "label": "Hero Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "random-hero-section"
+    }
+  ]
+}
+{% endschema %}
