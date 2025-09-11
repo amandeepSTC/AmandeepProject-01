@@ -1,0 +1,220 @@
+<style>
+  .hero-{{ section.id }} {
+      margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+
+  .hero {
+    width: 100%;
+    position: relative;
+  }
+
+  .hero-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* overlay content base */
+  .pos {
+    position: absolute;
+    color: #fff;
+    z-index: 2;
+  }
+
+  /* desktop version */
+  .desktop-text {
+    width: 318px;
+    top: 15%;
+    left: 5%;
+  }
+
+  .desktop-text h2 {
+    font-size: 32px;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  /* button */
+ .shop-btn {
+    background: #E16A28;
+    color: #fff;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+    height: 40px;
+    max-width: 171px;
+    margin-top: 5px;
+    text-decoration: none;
+  } 
+
+
+  .shop-btn:hover {
+    background: #d65b0c;
+  }
+
+  /* hide mobile text on desktop */
+  .mobile-text {
+    display: none;
+  }
+
+  /* mobile styles */
+  @media (max-width: 767px) {
+    .desktop-text {
+      display: none;
+    }
+
+    .mobile-text {
+      display: flex;
+      flex-direction: column;
+      top: 10%;
+      color: #ffffff;
+      left: 7%;
+      width: 83%;
+    }
+
+    .mobile-text h2 {
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .mobile-text p {
+      font-size: 24px;
+      line-height: 1;
+      margin-top: 9px;
+      margin-bottom: 8px;
+    }
+  }
+</style>
+
+<section class="hero hero-{{ section.id }}">
+  <div class="hero-content">
+    <div class="swiper hero-swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+        {% if block.type == 'hero_slide' %}
+        <div class="swiper-slide">
+          <picture>
+            <source media="(max-width: 767px)" srcset="{{ block.settings.hero_mobile_image | image_url: width: 1600 }}">
+            {{ block.settings.hero_image 
+              | image_url: width: 1600 
+              | image_tag: class: 'hero-img', alt: block.settings.hero_heading }}
+          </picture>
+
+
+          <div class="pos desktop-text">
+            <h2>{{ block.settings.hero_heading }}</h2>
+             <p>{{ block.settings.hero_paragraph }}</p>
+            {% if block.settings.button_link != blank %}
+              <a href="{{ block.settings.button_link }}" class="shop-btn">{{ block.settings.button_text }}</a>
+            {% endif %}
+          </div>
+
+          <div class="pos mobile-text">
+            <h2>{{ block.settings.hero_heading }}</h2>
+            <p>{{ block.settings.hero_paragraph }}</p>
+            {% if block.settings.button_link != blank %}
+              <a href="{{ block.settings.button_link }}" class="shop-btn">{{ block.settings.button_text }}</a>
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.hero-swiper', {
+      loop: true,
+      autoplay: {
+        delay: 2000,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  });
+</script>
+{% schema %}
+  {
+    "name": "random-hero-section",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "range",
+        "id": "margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Section bottom Margin",
+        "default": 10
+      }
+    ],
+    "blocks": [
+      {
+        "type": "hero_slide",
+        "name": "Hero Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "hero_image",
+            "label": "Desktop Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "hero_mobile_image",
+            "label": "Mobile Image"
+          },
+          {
+            "type": "text",
+            "id": "hero_heading",
+            "label": "Heading",
+            "default": "Introducing Premium Beauty"
+          },
+          {
+            "type": "textarea",
+            "id": "hero_paragraph",
+            "label": "Paragraph",
+            "default": "It's not magic, it's clean beauty"
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "Shop Now"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "random-hero-section"
+      }
+    ]
+  }
+  {% endschema %}
