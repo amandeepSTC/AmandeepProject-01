@@ -37,19 +37,22 @@
 
   /* button */
   .shop-btn {
-    background: #E16A28;
-    color: #fff;
-    padding: 8px 20px;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: 600;
-    height: 40px;
-    max-width: 171px;
-    margin-top: 5px;
-  }
+  background: #E16A28;
+  color: #fff;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+  height: 40px;
+  max-width: 171px;
+  margin-top: 5px;
+  display: inline-block;
+  text-decoration: none; /* 🔥 Fix underline */
+}
+
 
   .shop-btn:hover {
     background: #d65b0c;
@@ -93,7 +96,6 @@
 
 <section class="hero hero-{{ section.id }}">
   <div class="hero-content">
-    <!-- ✅ Swiper Container -->
     <div class="swiper hero-swiper">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
@@ -106,15 +108,15 @@
               | image_tag: class: 'hero-img', alt: block.settings.hero_heading }}
           </picture>
 
-          <!-- Overlay Content (desktop) -->
+
           <div class="pos desktop-text">
             <h2>{{ block.settings.hero_heading }}</h2>
+             <p>{{ block.settings.hero_paragraph }}</p>
             {% if block.settings.button_link != blank %}
               <a href="{{ block.settings.button_link }}" class="shop-btn">{{ block.settings.button_text }}</a>
             {% endif %}
           </div>
 
-          <!-- Overlay Content (mobile) -->
           <div class="pos mobile-text">
             <h2>{{ block.settings.hero_heading }}</h2>
             <p>{{ block.settings.hero_paragraph }}</p>
@@ -127,7 +129,6 @@
         {% endfor %}
       </div>
 
-      <!-- ✅ Swiper Controls -->
       <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
@@ -135,7 +136,6 @@
   </div>
 </section>
 
-<!-- ✅ Swiper Init -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     new Swiper('.hero-swiper', {
