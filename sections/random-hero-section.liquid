@@ -1,6 +1,8 @@
 <style>
   .hero-{{ section.id }} {
       margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+
   .hero {
     width: 100%;
     position: relative;
@@ -94,35 +96,35 @@
     <!-- ✅ Swiper Container -->
     <div class="swiper hero-swiper">
       <div class="swiper-wrapper">
-        <!-- Slide 1 -->
+        {% for block in section.blocks %}
+        {% if block.type == 'hero_slide' %}
         <div class="swiper-slide">
           <picture>
-            <source
-              media="(max-width: 767px)"
-              srcset="{{ section.settings.hero_mobile_image | image_url: width: 1600 }}"
-            >
-            {{
-              section.blocks.settings.hero_image
-              | image_url: width: 1600
-              | image_tag: class: 'hero-img', alt: 'Hero Banner 1'
-            }}
+            <source media="(max-width: 767px)" srcset="{{ block.settings.hero_mobile_image | image_url: width: 1600 }}">
+            {{ block.settings.hero_image 
+              | image_url: width: 1600 
+              | image_tag: class: 'hero-img', alt: block.settings.hero_heading }}
           </picture>
-        </div>
 
-        <!-- Slide 2 -->
-        <div class="swiper-slide">
-          <picture>
-            <source
-              media="(max-width: 767px)"
-              srcset="{{ section.settings.hero_mobile_image_2 | image_url: width: 1600 }}"
-            >
-            {{
-              section.settings.hero_image_2
-              | image_url: width: 1600
-              | image_tag: class: 'hero-img', alt: 'Hero Banner 2'
-            }}
-          </picture>
+          <!-- Overlay Content (desktop) -->
+          <div class="pos desktop-text">
+            <h2>{{ block.settings.hero_heading }}</h2>
+            {% if block.settings.button_link != blank %}
+              <a href="{{ block.settings.button_link }}" class="shop-btn">{{ block.settings.button_text }}</a>
+            {% endif %}
+          </div>
+
+          <!-- Overlay Content (mobile) -->
+          <div class="pos mobile-text">
+            <h2>{{ block.settings.hero_heading }}</h2>
+            <p>{{ block.settings.hero_paragraph }}</p>
+            {% if block.settings.button_link != blank %}
+              <a href="{{ block.settings.button_link }}" class="shop-btn">{{ block.settings.button_text }}</a>
+            {% endif %}
+          </div>
         </div>
+        {% endif %}
+        {% endfor %}
       </div>
 
       <!-- ✅ Swiper Controls -->
@@ -130,21 +132,9 @@
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </div>
-
-    <!-- Overlay Content (desktop) -->
-    <div class="pos desktop-text">
-      <h2>Natural beauty</h2>
-      <button class="shop-btn">Shop Now</button>
-    </div>
-
-    <!-- Overlay Content (mobile) -->
-    <div class="pos mobile-text">
-      <h2>Introducing Premium Beauty</h2>
-      <p>it’s not magic, it’s clean beauty</p>
-      <button class="shop-btn">Shop Now</button>
-    </div>
   </div>
 </section>
+
 <!-- ✅ Swiper Init -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -164,68 +154,3 @@
     });
   });
 </script>
-{% schema %}
-{
-  "name": "random-hero-section",
-  "tag": "section",
-  "class": "section",
-  "settings": [
-    {
-      "type": "range",
-      "id": "margin_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "unit": "px",
-      "label": "Section bottom Margin",
-      "default": 10
-    }
-  ],
-  "blocks": [
-    {
-      "type": "hero_slide",
-      "name": "Hero Slide",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "hero_image",
-          "label": "Desktop Image"
-        },
-        {
-          "type": "image_picker",
-          "id": "hero_mobile_image",
-          "label": "Mobile Image"
-        },
-        {
-          "type": "text",
-          "id": "hero_heading",
-          "label": "Heading",
-          "default": "Introducing Premium Beauty"
-        },
-        {
-          "type": "textarea",
-          "id": "hero_paragraph",
-          "label": "Paragraph",
-          "default": "It's not magic, it's clean beauty"
-        },
-        {
-          "type": "text",
-          "id": "button_text",
-          "label": "Button Text",
-          "default": "Shop Now"
-        },
-        {
-          "type": "url",
-          "id": "button_link",
-          "label": "Button Link"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "random-hero-section"
-    }
-  ]
-}
-{% endschema %}
