@@ -3,18 +3,20 @@
    
   <div class="features-grid">
     {% for block in section.blocks %}
-      {% case block.type  %}
+    {% case block.type %}
       {% when 'Good_Choice' %}
-    <div class="feature-item">
-      {% if block.settings.item_image != blank %}
-        {{ block.settings.item_image   }}
-      {% endif %}
-      {% if block.settings.item_text != blank %}
-      <p>{{ block.settings.item_text }}</p>
-      {% endif %}
-    </div>
+        <div class="feature-item">
+          {% if block.settings.item_image != blank %}
+            {{ block.settings.item_image 
+              | image_url: width: 300 
+              | image_tag: class: 'feature-img', alt: block.settings.item_text }}
+          {% endif %}
+          {% if block.settings.item_text != blank %}
+            <p>{{ block.settings.item_text }}</p>
+          {% endif %}
+        </div>
     {% endcase %}
-    {% endfor %}
+  {% endfor %}
   </div>
 </section>
 
