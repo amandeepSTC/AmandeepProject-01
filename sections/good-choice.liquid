@@ -7,7 +7,7 @@
       {% when 'Good_Choice' %}
     <div class="feature-item">
       {% if block.settings.item_image != blank %}
-        {{ block.settings.item_image | image_url : width : 55 | image_tag : alt : block.settings.item_text  }}
+        {{ block.settings.item_image   }}
       {% endif %}
       {% if block.settings.item_text != blank %}
       <p>{{ block.settings.item_text }}</p>
@@ -96,7 +96,7 @@
       "name" : "Good_Choice",
        "settings": [
         {
-           "type" : "image_picker",
+           "type" : "textarea",
            "id" : "item_image",
            "label" : "Product image"
         },
