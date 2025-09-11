@@ -37,7 +37,6 @@
 
   /* button */
  .shop-btn {
-    background: #E16A28;
     color: #fff;
     padding: 8px 20px;
     border: none;
@@ -112,7 +111,7 @@
             <h2>{{ block.settings.hero_heading }}</h2>
              <p>{{ block.settings.hero_paragraph }}</p>
             {% if block.settings.button_link != blank %}
-              <a href="{{ block.settings.button_link }}" class="shop-btn">{{ block.settings.button_text }}</a>
+              <a href="{{ block.settings.button_link }}" style="background-color: {{ block.settings.color_button }};" class="shop-btn">{{ block.settings.button_text }}</a>
             {% endif %}
           </div>
 
@@ -120,7 +119,7 @@
             <h2>{{ block.settings.hero_heading }}</h2>
             <p>{{ block.settings.hero_paragraph }}</p>
             {% if block.settings.button_link != blank %}
-              <a href="{{ block.settings.button_link }}" class="shop-btn">{{ block.settings.button_text }}</a>
+              <a href="{{ block.settings.button_link }}" class="shop-btn" style="background-color: {{ block.settings.color_button }};">{{ block.settings.button_text }}</a>
             {% endif %}
           </div>
         </div>
@@ -207,7 +206,13 @@
             "type": "url",
             "id": "button_link",
             "label": "Button Link"
+          },
+          {
+            "type": "color",
+            "id": "color_button",
+            "label": "color Link" 
           }
+
         ]
       }
     ],
