@@ -1,143 +1,160 @@
-<section class="hero">
+
+
+<section class="hero" style="margin-top: {{ section.settings.margin_top }}px; 
+                             margin-bottom: {{ section.settings.margin_bottom }}px;">
   <div class="hero-content">
-    <!-- Responsive Image -->
-    <picture>
-      <!-- Mobile image -->
-      <source
-        media="(max-width: 767px)"
-        srcset="{{ section.settings.hero_mobile_image | image_url: width: 1600 }}"
-      >
-      <!-- Desktop image -->
-      <img
-        width=""
-        height=""
-        class="hero-img"
-        src="{{ section.settings.hero_image | image_url: width: 1600 }}"
-        alt="Hero Banner"
-      >
-    </picture>
 
-    <!-- Overlay Content -->
+    <!-- ✅ Swiper Container -->
+    <div class="swiper hero-swiper">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <picture>
+            <source media="(max-width: 767px)" srcset="{{ section.settings.hero_mobile_image | image_url: width: 1600 }}">
+            {{ section.blocks.settings.hero_image
+ | image_url: width: 1600 
+ | image_tag: class: 'hero-img', alt: 'Hero Banner 1' }}
+          </picture>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <picture>
+            <source media="(max-width: 767px)" srcset="{{ section.settings.hero_mobile_image_2 | image_url: width: 1600 }}">
+            {{ section.settings.hero_image_2 
+ | image_url: width: 1600 
+ | image_tag: class: 'hero-img', alt: 'Hero Banner 2' }}
+          </picture>
+        </div>
+
+      </div>
+
+      <!-- ✅ Swiper Controls -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+
+    <!-- Overlay Content (desktop) -->
     <div class="pos desktop-text">
-      <h2>Introducing Premium Beauty</h2>
-      <button class="shop-btn">Shop Now</button>
-    </div>
-
-    <!-- Mobile Content (only visible on mobile) -->
-    <div class="pos mobile-text">
-      <h2>Introducing Premium Beauty</h2>
-      <p>it’s not magic, it’s clean beauty</p>
-      <button class="shop-btn">Shop Now</button>
-    </div>
+          <h2>Natural beauty</h2>
+          <button class="shop-btn">Shop Now</button>
   </div>
+
+  <!-- Overlay Content (mobile) -->
+  <div class="pos mobile-text">
+    <h2>Introducing Premium Beauty</h2>
+    <p>it’s not magic, it’s clean beauty</p>
+    <button class="shop-btn">Shop Now</button>
+  </div>
+</div>
 </section>
-
 <style>
-  .hero {
-    width: 100%;
-    position: relative;
-  }
+.hero {
+  width: 100%;
+  position: relative;
+}
 
-  .hero-img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
+.hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
-  /* overlay content base */
-  .pos {
-    position: absolute;
-    color: #fff;
-    z-index: 2;
-  }
+/* overlay content base */
+.pos {
+  position: absolute;
+  color: #fff;
+  z-index: 2;
+}
 
-  /* desktop version */
+/* desktop version */
+.desktop-text {
+  width: 318px;
+  top: 15%;
+  left: 5%;
+}
+
+.desktop-text h2 {
+  font-size: 32px;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* button */
+.shop-btn {
+  background: #E16A28;
+  color: #fff;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+  height: 40px;
+  max-width: 171px;
+  margin-top: 5px;
+}
+
+.shop-btn:hover {
+  background: #d65b0c;
+}
+
+/* hide mobile text on desktop */
+.mobile-text {
+  display: none;
+}
+
+/* mobile styles */
+@media (max-width: 767px) {
   .desktop-text {
-    width: 318px;
-    top: 15%;
-    left: 5%;
-  }
-
-  .desktop-text h2 {
-    font-size: 32px;
-    color : #ffffff;
-    font-weight: 700;
-    margin-bottom: 15px;
-  }
-
-  /* button */
-  .shop-btn {
-         background: #E16A28;
-          color: #fff;
-          padding: 8px 20px;
-          border: none;
-          border-radius: 25px;
-          font-size: 16px;
-          cursor: pointer;
-          transition: 0.3s;
-          font-weight: 600;
-          height: 40px;
-          font-weight: 500;
-          max-width: 171px;
-          margin-top: 5px;
-  }
-
-  .shop-btn:hover {
-    background: #d65b0c;
-  }
-
-  /* hide mobile text on desktop */
-  .mobile-text {
     display: none;
   }
 
-  /* mobile styles */
-  @media (max-width: 767px) {
-    .desktop-text {
-      display: none;
-    }
-
-    .mobile-text {
-          display: flex;
-          flex-direction: column;
-          top: 10%;
-          color: #ffffff;
-          left: 7%;
-          width: 83%;
-    }
-
-    .mobile-text h2 {
-      color: #ffffff;
-      font-size: 26px;
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
-
-    .mobile-text p {
-             font-size: 24px;
-          line-height: 1;
-          margin-top: 9px;
-          margin-bottom: 8px;
-    }
-
-    .shop-btn {
-     background: #E16A28;
-          color: #fff;
-          padding: 8px 20px;
-          border: none;
-          border-radius: 25px;
-          font-size: 16px;
-          cursor: pointer;
-          transition: 0.3s;
-          font-weight: 600;
-          height: 40px;
-          font-weight: 500;
-          max-width: 171px;
-          margin-top: 5px;
-    }
+  .mobile-text {
+    display: flex;
+    flex-direction: column;
+    top: 10%;
+    color: #ffffff;
+    left: 7%;
+    width: 83%;
   }
-</style>
 
+  .mobile-text h2 {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  .mobile-text p {
+    font-size: 24px;
+    line-height: 1;
+    margin-top: 9px;
+    margin-bottom: 8px;
+  }
+}</style><!-- ✅ Swiper Init -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    new Swiper(".hero-swiper", {
+      loop: true,
+      autoplay: {
+        delay: 2000,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "random-hero-section",
@@ -145,14 +162,64 @@
   "class": "section",
   "settings": [
     {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section Top Margin",
+      "default": 10
+    }, {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section bottom Margin",
+      "default": 10
+    }
+  ],
+  "blocks": [
+     {
+  "type": "hero_slide",
+  "name": "Hero Slide",
+  "settings": [
+    {
       "type": "image_picker",
       "id": "hero_image",
-      "label": "Hero Image"
+      "label": "Desktop Image"
     },
     {
       "type": "image_picker",
       "id": "hero_mobile_image",
-      "label": "Hero Image"
+      "label": "Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "hero_heading",
+      "label": "Heading",
+      "default": "Introducing Premium Beauty"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_paragraph",
+      "label": "Paragraph",
+      "default": "It's not magic, it's clean beauty"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+   ]
     }
   ],
   "presets": [
@@ -160,5 +227,4 @@
       "name": "random-hero-section"
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

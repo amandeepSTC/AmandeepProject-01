@@ -1,128 +1,199 @@
 <style>
-      .shop-collection {
-    width: 100%;
-    max-width: 1800px; /* based on your screenshot width */
-    margin: 0 auto;
-    padding: 40px 20px;
+
+  .shop-collection .swiper-button-prev::after,
+  .shop-collection .swiper-button-next::after {
+    display: none;
+  }
+
+  .normal-slider .slider-heading {
     text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  .normal-slider .swiper {
+    padding-bottom: 80px;
+    /* arrows ke liye thoda gap */
   }
 
-  .collection-title {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    text-transform: uppercase;
+  .shop-collection.normal-slider {
+    margin-top: 60px;
   }
 
-  .swiper-container {
+  /* Slides */
+  .normal-slider .swiper-slide {
+    width: 292.18px;
+    height: 389.03px;
     position: relative;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .swiper-slide {
-    position: relative;
+    min-height: 350px;
     border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.3s ease-in-out;
   }
 
-  .collection-image {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
-  }
-
-  .swiper-slide:hover .collection-image {
-    transform: scale(1.05);
-  }
-
-  .overlay {
+  .normal-slider .swiper-slide::after {
+    content: "";
     position: absolute;
     inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.3s ease-in-out;
+    border-radius: 12px;
+  }
+
+  .normal-slider .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: #fff;
     font-size: 18px;
     font-weight: 600;
+    text-align: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease;
+    z-index: 2;
   }
 
-  .swiper-slide:hover .overlay {
+
+  .normal-slider .swiper-slide.swiper-slide-active .overlay-text {
     opacity: 1;
   }
 
-  /* Swiper navigation */
-  .swiper-button-prev,
-  .swiper-button-next {
-    color: #000;
-    font-size: 20px;
+
+  .normal-slider .swiper-slide.swiper-slide-active::after {
+    background: rgba(0, 0, 0, 0.5);
   }
 
-  .swiper-pagination-bullet {
-    background: #000;
-    opacity: 0.5;
-  }
 
-  .swiper-pagination-bullet-active {
-    background: #000;
+  .normal-slider .swiper-slide.swiper-slide-active .overlay-text {
     opacity: 1;
+  }
+
+
+  .normal-slider .swiper-slide.swiper-slide-active {
+    opacity: 1;
+    z-index: 2;
+    transform: scale(1.05);
+  }
+
+  /* ✅ Custom arrow wrapper */
+  .normal-slider .slider-arrows {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .normal-slider .swiper-button-prev,
+  .normal-slider .swiper-button-next {
+    position: static;
+    /* default swiper absolute position hata diya */
+    cursor: pointer;
+  }
+ 
+
+
+  @media screen and (max-width: 768px) {
+    .normal-slider .swiper-slide {
+      min-height: 250px;
+      width: 80%;
+      /* mobile pe thoda bada card */
+    }
+
+    .normal-slider .slider-arrows {
+      bottom: 10px;
+      gap: 0;
+    }
+    
+  .collection-image {
+    width: 180px;    /* mobile */
+    height: 245px;
+
+}
   }
 </style>
+<section class="shop-collection normal-slider">
+  <h2 class="slider-heading">Shop Our Collection</h2>
 
-<section class="shop-collection">
-  <h2 class="collection-title">SHOP OUR COLLECTION</h2>
-
-  <div class="swiper-container">
+  <div class="swiper">
     <div class="swiper-wrapper">
-      <!-- Slide 1 -->
-      <div class="swiper-slide">
-        {{ 'product1.jpg' | image_url: width: 400 | image_tag: class: 'collection-image', alt: 'Product 1' }}
-        <div class="overlay">
-          <span>Sun Protection</span>
-        </div>
-      </div>
-
-      <!-- Slide 2 -->
-      <div class="swiper-slide">
-        {{ 'product2.jpg' | image_url: width: 400 | image_tag: class: 'collection-image', alt: 'Product 2' }}
-        <div class="overlay">
-          <span>Face Serum</span>
-        </div>
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="swiper-slide">
-        {{ 'product3.jpg' | image_url: width: 400 | image_tag: class: 'collection-image', alt: 'Product 3' }}
-        <div class="overlay">
-          <span>Moisturizer</span>
-        </div>
-      </div>
-      <!-- Add more slides dynamically with Liquid -->
+      {% for block in section.blocks %}
+        {% assign coll = collections[block.settings.collection] %}
+        {% if coll != blank %}
+          <a
+            href="{{ coll.url }}"
+            class="swiper-slide"
+            style="background-image: url('{{ coll.image | image_url: width: 384, height: 300, crop: 'center' }}')">
+            <div class="overlay-text">
+              <span>{{ coll.title }}</span>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
     </div>
 
-    <!-- Navigation arrows -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-
-    <!-- Pagination dots -->
-    <div class="swiper-pagination"></div>
+    <!-- Navigation -->
+    <div class="slider-arrows">
+      <div class="swiper-button-prev">{% render 'slider-left-arrow' %}</div>
+      <div class="swiper-button-next">{% render 'slider-right-arrow' %}</div>
+    </div>
   </div>
 </section>
+<script>
+  const swiper = new Swiper(".normal-slider .swiper", {
+    slidesPerView: 5,
+    spaceBetween: 20,
+    centeredSlides: true,
+    loop: true,
+    navigation: {
+      nextEl: ".normal-slider .swiper-button-next",
+      prevEl: ".normal-slider .swiper-button-prev",
+    },
+    breakpoints: {
+      1200: { slidesPerView: 5 },
+      992: { slidesPerView: 5 },
+      768: { slidesPerView: 3 },
+      0: { slidesPerView: 2 },
+    },
+  });
+</script>
+
 
 {% schema %}
-{
-  "name": "Shop Collection",
-  "settings": [],
-  "blocks": [],
-  "presets": [
-    {
-      "name": "Shop Collection"
-    }
-  ]
-}
+  {
+    "name": "Shop Collection",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection card",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Select collection"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Shop Collection",
+        "blocks": [
+          {
+            "type": "collection"
+          }, {
+            "type": "collection"
+          }, {
+            "type": "collection"
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}

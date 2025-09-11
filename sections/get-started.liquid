@@ -5,28 +5,50 @@
     {% for block in section.blocks %}
       {% case block.type %}
         {% when 'get_started_item' %}
-          <div class="item">
-            {% if block.settings.item_image != blank %}
-               {{ block.settings.item_image 
-                | image_url: width: 600 
-                | image_tag: alt: block.settings.item_title }}
-            {% endif %}
-            {% if block.settings.item_title != blank %}
-              <p>{{ block.settings.item_title }}</p>
-            {% endif %}
-          </div>
+          {% assign coll = collections[block.settings.item_collection] %}
+          {% if coll != blank %}
+            <a href="{{ coll.url }}" class="item">
+              {% if coll.image != blank %}
+                {{ coll.image 
+                  | image_url: width: 323, height: 419, crop: 'center' 
+                  | image_tag: alt: coll.title, class: 'collection-image' }}
+              {% endif %}
+              <p class="collection-title">{{ coll.title }}</p>
+            </a>
+          {% endif %}
       {% endcase %}
     {% endfor %}
   </div>
 </section>
 
 
+
+
 <style>
+  .get-started .item {
+  text-decoration: none; /* ✅ removes underline on whole link */
+}
+
+.get-started .collection-image {
+  width: 323px;     /* ✅ fixed width */
+  height: 419px;    /* ✅ fixed height */
+  object-fit: cover; /* nicely cropped */
+  border-radius: 10px;
+}
+
+.get-started .collection-title {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;       /* ✅ black color */
+  text-decoration: none; /* ✅ remove underline */
+}
+
   .get-started {
     text-align: center;
     padding: 10px 10px;
   }
-  }
+  
 
   .section-title {
     font-size: 28px;
@@ -72,31 +94,25 @@
   "tag": "section",
   "class": "get-started",
   "settings": [
-     { 
-        "type" : "text",
-        "id" : "top_title",
-        "label" : "Top Heading"
-     }
+    { 
+      "type": "text",
+      "id": "top_title",
+      "label": "Top Heading"
+    }
   ],
   "blocks": [
-  {
-    "type": "get_started_item",
-    "name": "Get Started Item",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "item_image",
-        "label": "Product Image"
-      },
-      {
-        "type": "text",
-        "id": "item_title",
-        "label": "Product Title",
-        "default": "Face Oils"
-      }
-    ]
-  }
-],
+    {
+      "type": "get_started_item",
+      "name": "Get Started Item",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "item_collection",
+          "label": "Select Collection"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
       "name": "Get Started Section"
