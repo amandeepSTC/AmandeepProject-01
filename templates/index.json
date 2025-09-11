@@ -11,9 +11,36 @@
   "sections": {
     "random_hero_section_8Ftn9G": {
       "type": "random-hero-section",
+      "blocks": {
+        "hero_slide_a8wP67": {
+          "type": "hero_slide",
+          "settings": {
+            "hero_image": "shopify://shop_images/Muri_Lelu_1_8d4be938-a9af-436d-8082-b69589b2aa93.png",
+            "hero_mobile_image": "shopify://shop_images/Muri_Lelu_2_1.png",
+            "hero_heading": "Introducing Premium Beauty",
+            "hero_paragraph": "It's not magic, it's clean beauty",
+            "button_text": "Shop Now",
+            "button_link": "shopify://products/chic-leopard-wrist-pouch"
+          }
+        },
+        "hero_slide_gwGnjc": {
+          "type": "hero_slide",
+          "settings": {
+            "hero_image": "shopify://shop_images/bestsellers_b14be154-cbed-4975-b005-293d12aed4ed_1.png",
+            "hero_mobile_image": "shopify://shop_images/Muri_Lelu_2_1.png",
+            "hero_heading": "Introducing Premium Beauty",
+            "hero_paragraph": "It's not magic, it's clean beauty",
+            "button_text": "Shop Now",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_a8wP67",
+        "hero_slide_gwGnjc"
+      ],
       "name": "Random Hero Section",
       "settings": {
-        "margin_top": 10,
         "margin_bottom": 10
       }
     },
