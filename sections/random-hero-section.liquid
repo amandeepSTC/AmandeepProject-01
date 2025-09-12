@@ -35,61 +35,69 @@
     margin-bottom: 15px;
   }
 
-  /* button */
- .shop-btn {
-    color: #fff;
-    padding: 8px 20px;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: 600;
-    height: 40px;
-    max-width: 171px;
-    margin-top: 5px;
-    text-decoration: none;
-  } 
+.shop-btn {
+  color: #fff;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+  height: 40px;
+  max-width: 171px;
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+.shop-btn:hover {
+  background: #d65b0c;
+}
 
 
-  .shop-btn:hover {
-    background: #d65b0c;
-  }
+.desktop-text p,
+.mobile-text p {
+  font-size: 24px; 
+  line-height: 1.3;
+}
 
-  /* hide mobile text on desktop */
-  .mobile-text {
+
+@media (max-width: 767px) {
+  .desktop-text {
     display: none;
   }
 
-  /* mobile styles */
-  @media (max-width: 767px) {
-    .desktop-text {
-      display: none;
-    }
-
-    .mobile-text {
-      display: flex;
-      flex-direction: column;
-      top: 10%;
-      color: #ffffff;
-      left: 7%;
-      width: 83%;
-    }
-
-    .mobile-text h2 {
-      color: #ffffff;
-      font-size: 26px;
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
-
-    .mobile-text p {
-      font-size: 24px;
-      line-height: 1;
-      margin-top: 9px;
-      margin-bottom: 8px;
-    }
+  .mobile-text {
+    display: flex;
+    flex-direction: column;
+    top: 10%;
+    color: #ffffff;
+    left: 7%;
+    width: 83%;
   }
+
+  .mobile-text h2 {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  .mobile-text p {
+    margin-top: 9px;
+    margin-bottom: 8px;
+  }
+
+  .mobile-text .shop-btn {
+    width: 100%;
+    max-width: 100%;
+    font-size: 18px;
+    height: auto;
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+
 </style>
 
 <section class="hero hero-{{ section.id }}">
