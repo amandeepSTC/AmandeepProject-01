@@ -58,19 +58,19 @@
         "get_started_item_ThkPt7": {
           "type": "get_started_item",
           "settings": {
-            "item_collection": ""
+            "item_collection": "cleansers"
           }
         },
         "get_started_item_rFNLiJ": {
           "type": "get_started_item",
           "settings": {
-            "item_collection": ""
+            "item_collection": "serums"
           }
         },
         "get_started_item_pJqNfx": {
           "type": "get_started_item",
           "settings": {
-            "item_collection": ""
+            "item_collection": "serums-1"
           }
         }
       },
@@ -115,13 +115,29 @@
             "item_image": "",
             "item_text": "Vegan"
           }
+        },
+        "good_choice_3tkCq6": {
+          "type": "Good_Choice",
+          "settings": {
+            "item_image": "",
+            "item_text": ""
+          }
+        },
+        "good_choice_heiqRp": {
+          "type": "Good_Choice",
+          "settings": {
+            "item_image": "",
+            "item_text": ""
+          }
         }
       },
       "block_order": [
         "good_choice_jHpWEg",
         "good_choice_iNVTEL",
         "good_choice_GrNhCA",
-        "good_choice_epGVR6"
+        "good_choice_epGVR6",
+        "good_choice_3tkCq6",
+        "good_choice_heiqRp"
       ],
       "name": "good Section",
       "settings": {
@@ -202,12 +218,64 @@
         "heading_top": "SKINCARE",
         "heading_main": "ESSENTIALS"
       }
+    },
+    "shop_collection_RQLKBr": {
+      "type": "shop-collection",
+      "blocks": {
+        "collection_N8DQfc": {
+          "type": "collection",
+          "settings": {
+            "collection": "cleansers"
+          }
+        },
+        "collection_VVdR4K": {
+          "type": "collection",
+          "settings": {
+            "collection": "face-oil-1"
+          }
+        },
+        "collection_raWqCf": {
+          "type": "collection",
+          "settings": {
+            "collection": "serums"
+          }
+        },
+        "collection_ynXyX9": {
+          "type": "collection",
+          "settings": {
+            "collection": "premium-collection"
+          }
+        },
+        "collection_DmpQQi": {
+          "type": "collection",
+          "settings": {
+            "collection": "serums-1"
+          }
+        },
+        "collection_VmWA4L": {
+          "type": "collection",
+          "settings": {
+            "collection": "the-ultimate-skin-revival-collection"
+          }
+        }
+      },
+      "block_order": [
+        "collection_N8DQfc",
+        "collection_VVdR4K",
+        "collection_raWqCf",
+        "collection_ynXyX9",
+        "collection_DmpQQi",
+        "collection_VmWA4L"
+      ],
+      "name": "Shop Collection",
+      "settings": {}
     }
   },
   "order": [
     "random_hero_section_8Ftn9G",
     "get_started_8nV6B8",
     "good_choice_EGDm8Y",
-    "skincare_essentials_LjhHrw"
+    "skincare_essentials_LjhHrw",
+    "shop_collection_RQLKBr"
   ]
 }
