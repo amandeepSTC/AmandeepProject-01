@@ -115,21 +115,13 @@
             "item_image": "shopify://shop_images/Vector_b0bbc222-5d74-41ac-9a79-a4b4af687559.png",
             "item_text": "Vegan"
           }
-        },
-        "good_choice_PLQewP": {
-          "type": "Good_Choice",
-          "settings": {
-            "item_image": "shopify://shop_images/Vector_451af5eb-ec6f-4417-b3c8-0ba4dceaaf81.png",
-            "item_text": "Sulphate Free"
-          }
         }
       },
       "block_order": [
         "good_choice_jHpWEg",
         "good_choice_iNVTEL",
         "good_choice_GrNhCA",
-        "good_choice_epGVR6",
-        "good_choice_PLQewP"
+        "good_choice_epGVR6"
       ],
       "name": "good Section",
       "settings": {
