@@ -21,16 +21,15 @@
 
     /* Slides */
     .normal-slider .swiper-slide {
-   flex: 0 0 auto;  /* ✅ Swiper ko force karo width use karne ke liye */
-  width: 292.18px;
-  height: 389.03px;
-  position: relative;
-  min-height: 350px;
-  border-radius: 12px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: all 0.3s ease-in-out;
+      width: 292.18px;
+      height: 389.03px;
+      position: relative;
+      min-height: 350px;
+      border-radius: 12px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: all 0.3s ease-in-out;
     }
 
     .normal-slider .swiper-slide::after {
@@ -145,26 +144,24 @@
   </div>
 </section>
 <script>
- const swiper = new Swiper(".normal-slider .swiper", {
-  slidesPerView: 5,
-  spaceBetween: 20,
-  centeredSlides: true,
-  slideToClickedSlide: true,
-  loop: true,
-  loopedSlides: document.querySelectorAll(".normal-slider .swiper-slide").length, // ✅ sari slides loop me dalo
-  navigation: {
-    nextEl: ".normal-slider .swiper-button-next",
-    prevEl: ".normal-slider .swiper-button-prev",
-  },
-  breakpoints: {
-    1200: { slidesPerView: 5 },
-    992: { slidesPerView: 5 },
-    768: { slidesPerView: 3 },
-    0: { slidesPerView: 2 },
-  },
-});
-
-
+  const swiper = new Swiper('.normal-slider .swiper', {
+    slidesPerView: 5,
+    spaceBetween: 20,
+    {% comment %} centeredSlides: true, {% endcomment %}
+    slideToClickedSlide: true,
+    loopedSlides: 5,
+    loop: true,
+    navigation: {
+      nextEl: '.normal-slider .swiper-button-next',
+      prevEl: '.normal-slider .swiper-button-prev',
+    },
+    breakpoints: {
+      1200: { slidesPerView: 5 },
+      992: { slidesPerView: 5 },
+      768: { slidesPerView: 3 },
+      0: { slidesPerView: 2 },
+    },
+  });
 </script>
 
 {% schema %}
