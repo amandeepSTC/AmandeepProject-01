@@ -144,23 +144,25 @@
   </div>
 </section>
 <script>
-  const swiper = new Swiper('.normal-slider .swiper', {
-    slidesPerView: 5,
-    spaceBetween: 20,
-    centeredSlides: true,
-    slideToClickedSlide: true,
-    loopedSlides: 5,
-    navigation: {
-      nextEl: '.normal-slider .swiper-button-next',
-      prevEl: '.normal-slider .swiper-button-prev',
-    },
-    breakpoints: {
-      1200: { slidesPerView: 5 },
-      992: { slidesPerView: 5 },
-      768: { slidesPerView: 3 },
-      0: { slidesPerView: 2 },
-    },
-  });
+  const swiper = new Swiper(".normal-slider .swiper", {
+  slidesPerView: 5,
+  spaceBetween: 20,
+  centeredSlides: true,
+  slideToClickedSlide: true,
+  loop: true,
+  loopedSlides: 5,   // ✅ jitni slidesPerView utni ya zyada rakho
+  navigation: {
+    nextEl: ".normal-slider .swiper-button-next",
+    prevEl: ".normal-slider .swiper-button-prev",
+  },
+  breakpoints: {
+    1200: { slidesPerView: 5, loopedSlides: 5 },
+    992: { slidesPerView: 5, loopedSlides: 5 },
+    768: { slidesPerView: 3, loopedSlides: 3 },
+    0: { slidesPerView: 2, loopedSlides: 2 },
+  },
+});
+
 </script>
 
 {% schema %}
