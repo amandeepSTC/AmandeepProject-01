@@ -135,6 +135,19 @@
           </a>
         {% endif %}
       {% endfor %}
+      {% for block in section.blocks %}
+        {% assign coll = collections[block.settings.collection] %}
+        {% if coll != blank %}
+          <a
+            href="{{ coll.url }}"
+            class="swiper-slide"
+            style="background-image: url('{{ coll.image | image_url: width: 384, height: 300, crop: 'center' }}')">
+            <div class="overlay-text">
+              <span>{{ coll.title }}</span>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
     </div>
 
     <!-- Navigation -->
@@ -155,7 +168,7 @@
       prevEl: ".normal-slider .swiper-button-prev",
     },
     breakpoints: {
-      1200: { slidesPerView: 3 },
+      1200: { slidesPerView: 5 },
       992: { slidesPerView: 5 },
       768: { slidesPerView: 3 },
       0: { slidesPerView: 3 },
