@@ -1,121 +1,119 @@
 <style>
+    .shop-collection .swiper-button-prev::after,
+    .shop-collection .swiper-button-next::after {
+      display: none;
+    }
 
-  .shop-collection .swiper-button-prev::after,
-  .shop-collection .swiper-button-next::after {
-    display: none;
-  }
+    .normal-slider .slider-heading {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .normal-slider .swiper {
+      padding-bottom: 80px;
+      /* arrows ke liye thoda gap */
+    }
 
-  .normal-slider .slider-heading {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 28px;
-    font-weight: 700;
-  }
-  .normal-slider .swiper {
-    padding-bottom: 80px;
-    /* arrows ke liye thoda gap */
-  }
+    .shop-collection.normal-slider {
+      margin-top: 60px;
+    }
 
-  .shop-collection.normal-slider {
-    margin-top: 60px;
-  }
-
-  /* Slides */
-  .normal-slider .swiper-slide {
-    width: 292.18px;
-    height: 389.03px;
+    /* Slides */
+    .normal-slider .swiper-slide {
+     width: 292px !important; /* fixed width for desktop */
+    height: 389px;
     position: relative;
-    min-height: 350px;
     border-radius: 12px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     transition: all 0.3s ease-in-out;
-  }
-
-  .normal-slider .swiper-slide::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0);
-    transition: background 0.3s ease-in-out;
-    border-radius: 12px;
-  }
-
-  .normal-slider .overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    font-size: 18px;
-    font-weight: 600;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 2;
-  }
-
-
-  .normal-slider .swiper-slide.swiper-slide-active .overlay-text {
-    opacity: 1;
-  }
-
-
-  .normal-slider .swiper-slide.swiper-slide-active::after {
-    background: rgba(0, 0, 0, 0.5);
-  }
-
-
-  .normal-slider .swiper-slide.swiper-slide-active .overlay-text {
-    opacity: 1;
-  }
-
-
-  .normal-slider .swiper-slide.swiper-slide-active {
-    opacity: 1;
-    z-index: 2;
-    transform: scale(1.05);
-  }
-
-  /* ✅ Custom arrow wrapper */
-  .normal-slider .slider-arrows {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 40px;
-    align-items: center;
-  }
-
-  .normal-slider .swiper-button-prev,
-  .normal-slider .swiper-button-next {
-    position: static;
-    /* default swiper absolute position hata diya */
-    cursor: pointer;
-  }
- 
-
-
-  @media screen and (max-width: 768px) {
-    .normal-slider .swiper-slide {
-      min-height: 250px;
-      width: 80%;
-      /* mobile pe thoda bada card */
     }
 
+    .normal-slider .swiper-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0);
+      transition: background 0.3s ease-in-out;
+      border-radius: 12px;
+    }
+
+    .normal-slider .overlay-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 2;
+    }
+
+
+    .normal-slider .swiper-slide.swiper-slide-active .overlay-text {
+      opacity: 1;
+    }
+
+
+    .normal-slider .swiper-slide.swiper-slide-active::after {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+
+    .normal-slider .swiper-slide.swiper-slide-active .overlay-text {
+      opacity: 1;
+    }
+
+
+    .normal-slider .swiper-slide.swiper-slide-active {
+      opacity: 1;
+      z-index: 2;
+      transform: scale(1.05);
+    }
+
+    /* ✅ Custom arrow wrapper */
     .normal-slider .slider-arrows {
-      bottom: 10px;
-      gap: 2;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 40px;
+      align-items: center;
     }
-    
-  .collection-image {
-    width: 180px;    /* mobile */
-    height: 245px;
 
-}
+    .normal-slider .swiper-button-prev,
+    .normal-slider .swiper-button-next {
+      position: static;
+      /* default swiper absolute position hata diya */
+      cursor: pointer;
+    }
+
+
+
+    @media screen and (max-width: 768px) {
+      .normal-slider .swiper-slide {
+        width: 80% !important;  /* center wala bada */
+         min-height: 250px;
+        /* mobile pe thoda bada card */
+      }
+
+      .normal-slider .slider-arrows {
+        bottom: 10px;
+        gap: 2;
+      }
+
+    .collection-image {
+      width: 180px;    /* mobile */
+      height: 245px;
+
   }
+    }
 </style>
 <section class="shop-collection normal-slider">
   <h2 class="slider-heading">Shop Our Collection</h2>
@@ -128,7 +126,8 @@
           <a
             href="{{ coll.url }}"
             class="swiper-slide"
-            style="background-image: url('{{ coll.image | image_url: width: 384, height: 300, crop: 'center' }}')">
+            style="background-image: url('{{ coll.image | image_url: width: 384, height: 300, crop: 'center' }}')"
+          >
             <div class="overlay-text">
               <span>{{ coll.title }}</span>
             </div>
@@ -141,7 +140,8 @@
           <a
             href="{{ coll.url }}"
             class="swiper-slide"
-            style="background-image: url('{{ coll.image | image_url: width: 384, height: 300, crop: 'center' }}')">
+            style="background-image: url('{{ coll.image | image_url: width: 384, height: 300, crop: 'center' }}')"
+          >
             <div class="overlay-text">
               <span>{{ coll.title }}</span>
             </div>
@@ -158,56 +158,58 @@
   </div>
 </section>
 <script>
-  const swiper = new Swiper(".normal-slider .swiper", {
+  const swiper = new Swiper('.normal-slider .swiper', {
     slidesPerView: 5,
     spaceBetween: 20,
-     centeredSlides: true,
-     loop : true,
+    centeredSlides: true,
+    loop: true,
     navigation: {
-      nextEl: ".normal-slider .swiper-button-next",
-      prevEl: ".normal-slider .swiper-button-prev",
+      nextEl: '.normal-slider .swiper-button-next',
+      prevEl: '.normal-slider .swiper-button-prev',
     },
     breakpoints: {
-        0: { slidesPerView: 2.5 },
-        768: { slidesPerView: 3 },
-        992: { slidesPerView: 5 },
-        1200: { slidesPerView: 5 },
-     
+      0: { slidesPerView: 1.5,
+          centeredSlides: true 
+       },
+      768: { slidesPerView: 3 },
+      992: { slidesPerView: 5 },
+      1200: { slidesPerView: 5 },
     },
   });
 </script>
 
-
 {% schema %}
-  {
-    "name": "Shop Collection",
-    "settings": [],
-    "blocks": [
-      {
-        "type": "collection",
-        "name": "Collection card",
-        "settings": [
-          {
-            "type": "collection",
-            "id": "collection",
-            "label": "Select collection"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Shop Collection",
-        "blocks": [
-          {
-            "type": "collection"
-          }, {
-            "type": "collection"
-          }, {
-            "type": "collection"
-          }
-        ]
-      }
-    ]
-  }
+{
+  "name": "Shop Collection",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection card",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop Collection",
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
