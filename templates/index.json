@@ -122,13 +122,6 @@
             "item_image": "shopify://shop_images/Vector_451af5eb-ec6f-4417-b3c8-0ba4dceaaf81.png",
             "item_text": "Sulphate Free"
           }
-        },
-        "good_choice_jWnG88": {
-          "type": "Good_Choice",
-          "settings": {
-            "item_image": "shopify://shop_images/Group_13922.png",
-            "item_text": "Non-Toxic"
-          }
         }
       },
       "block_order": [
@@ -136,8 +129,7 @@
         "good_choice_iNVTEL",
         "good_choice_GrNhCA",
         "good_choice_epGVR6",
-        "good_choice_PLQewP",
-        "good_choice_jWnG88"
+        "good_choice_PLQewP"
       ],
       "name": "good Section",
       "settings": {
