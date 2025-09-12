@@ -1,4 +1,7 @@
 <style>
+  .features-{{ section.id }} {
+      margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
 .features {
   text-align: center;
   padding: 0px 10px;
@@ -60,7 +63,7 @@
 
 
 
-<section class="features">
+<section class="features features-{{ section.id }}">
   <h2 class="features-title">{{ section.settings.top_title  }}</h2>
    
   <div class="features-grid">
@@ -86,6 +89,16 @@
   "tag": "section",
   "class": "features",
   "settings": [
+      {
+        "type": "range",
+        "id": "margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Section bottom Margin",
+        "default": 10
+      },
      { 
         "type" : "text",
         "id" : "top_title",
