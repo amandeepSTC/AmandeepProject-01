@@ -147,7 +147,8 @@
   const swiper = new Swiper(".normal-slider .swiper", {
     slidesPerView: 5,
     spaceBetween: 20,
-    centeredSlides: false,
+      centeredSlides: true,   
+     slideToClickedSlide: true,
     loop: true,
     navigation: {
       nextEl: ".normal-slider .swiper-button-next",
