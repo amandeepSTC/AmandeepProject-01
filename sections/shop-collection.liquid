@@ -150,18 +150,32 @@
   centeredSlides: true,
   slideToClickedSlide: true,
   loop: true,
-  loopedSlides: 5,   // ✅ jitni slidesPerView utni ya zyada rakho
   navigation: {
     nextEl: ".normal-slider .swiper-button-next",
     prevEl: ".normal-slider .swiper-button-prev",
   },
   breakpoints: {
-    1200: { slidesPerView: 5, loopedSlides: 5 },
-    992: { slidesPerView: 5, loopedSlides: 5 },
-    768: { slidesPerView: 3, loopedSlides: 3 },
-    0: { slidesPerView: 2, loopedSlides: 2 },
+    1200: { slidesPerView: 5 },
+    992: { slidesPerView: 5 },
+    768: { slidesPerView: 3 },
+    0: { slidesPerView: 2 },
+  },
+  on: {
+    init: function () {
+      highlightCenter(this);
+    },
+    slideChange: function () {
+      highlightCenter(this);
+    },
   },
 });
+
+function highlightCenter(swiper) {
+  swiper.slides.forEach(slide => slide.classList.remove("is-center"));
+  const centerIndex = swiper.activeIndex;
+  swiper.slides[centerIndex].classList.add("is-center");
+}
+
 
 </script>
 
