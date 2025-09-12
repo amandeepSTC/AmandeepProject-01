@@ -102,7 +102,7 @@
   }
 </style>
 
-<section class="bestseller-section">
+<section id="{{ section.id }}" class="bestseller-section">
   <!-- Left Side -->
   <div class="bestseller-left">
     <h2>{{ section.settings.heading }}</h2>
@@ -143,19 +143,28 @@
 </section>
 
 <script>
-  const swiper = new Swiper(".bestseller-right .swiper", {
-    slidesPerView: 3,
-    spaceBetween: 20,
-    navigation: {
-      nextEl: ".bestseller-right .swiper-button-next",
-      prevEl: ".bestseller-right .swiper-button-prev",
+  document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+      new Swiper("#{{ section.id }} .swiper", {
+        slidesPerView: 5,
+        spaceBetween: 20,
+        centeredSlides: true,
+        loop: true,
+        navigation: {
+          nextEl: ".normal-slider .swiper-button-next",
+          prevEl: ".normal-slider .swiper-button-prev",
+        },
+        breakpoints: {
+          0: { slidesPerView: 2 },
+          768: { slidesPerView: 3 },
+          992: { slidesPerView: 5 },
+          1200: { slidesPerView: 5 },
+        },
+      });
     },
-    breakpoints: {
-      0: { slidesPerView: 1.2},
-      768: { slidesPerView: 2 },
-      1200: { slidesPerView: 1 },
-    },
-  });
+    { once: true }
+  );
 </script>
 
 {% schema %}
