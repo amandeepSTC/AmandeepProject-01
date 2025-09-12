@@ -21,15 +21,16 @@
 
     /* Slides */
     .normal-slider .swiper-slide {
-      width: 292.18px;
-      height: 389.03px;
-      position: relative;
-      min-height: 350px;
-      border-radius: 12px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      transition: all 0.3s ease-in-out;
+   flex: 0 0 auto;  /* ✅ Swiper ko force karo width use karne ke liye */
+  width: 292.18px;
+  height: 389.03px;
+  position: relative;
+  min-height: 350px;
+  border-radius: 12px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.3s ease-in-out;
     }
 
     .normal-slider .swiper-slide::after {
@@ -144,12 +145,13 @@
   </div>
 </section>
 <script>
-  const swiper = new Swiper(".normal-slider .swiper", {
+ const swiper = new Swiper(".normal-slider .swiper", {
   slidesPerView: 5,
   spaceBetween: 20,
   centeredSlides: true,
   slideToClickedSlide: true,
   loop: true,
+  loopedSlides: document.querySelectorAll(".normal-slider .swiper-slide").length, // ✅ sari slides loop me dalo
   navigation: {
     nextEl: ".normal-slider .swiper-button-next",
     prevEl: ".normal-slider .swiper-button-prev",
@@ -160,21 +162,7 @@
     768: { slidesPerView: 3 },
     0: { slidesPerView: 2 },
   },
-  on: {
-    init: function () {
-      highlightCenter(this);
-    },
-    slideChange: function () {
-      highlightCenter(this);
-    },
-  },
 });
-
-function highlightCenter(swiper) {
-  swiper.slides.forEach(slide => slide.classList.remove("is-center"));
-  const centerIndex = swiper.activeIndex;
-  swiper.slides[centerIndex].classList.add("is-center");
-}
 
 
 </script>
