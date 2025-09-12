@@ -1,4 +1,4 @@
-<section class="get-started">
+<section class="get-started get-started-{{ section.id }} ">
   <h2 class="section-title">GET STARTED</h2>
 
   <div class="get-started-grid">
@@ -25,6 +25,9 @@
 
 
 <style>
+   .features-{{ section.id }} {
+      margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
   .get-started .item {
   text-decoration: none; /* ✅ removes underline on whole link */
 }
@@ -94,6 +97,16 @@
   "tag": "section",
   "class": "get-started",
   "settings": [
+    {
+        "type": "range",
+        "id": "margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Section bottom Margin",
+        "default": 10
+      },
     { 
       "type": "text",
       "id": "top_title",
