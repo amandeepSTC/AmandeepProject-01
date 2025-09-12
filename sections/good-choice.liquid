@@ -1,3 +1,23 @@
+<section class="features">
+  <h2 class="features-title">{{ section.settings.top_title  }}</h2>
+   
+  <div class="features-grid">
+    {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'Good_Choice' %}
+        <div class="feature-item">
+          {% if block.settings.item_image != blank %}
+            {{ block.settings.item_image }}
+          {% endif %}
+          {% if block.settings.item_text != blank %}
+            <p>{{ block.settings.item_text }}</p>
+          {% endif %}
+        </div>
+    {% endcase %}
+  {% endfor %}
+  </div>
+</section>
+
 <style>
 .features {
   text-align: center;
@@ -57,25 +77,6 @@
   }
 }
 </style>
-<section class="features">
-  <h2 class="features-title">{{ section.settings.top_title  }}</h2>
-   
-  <div class="features-grid">
-    {% for block in section.blocks %}
-    {% case block.type %}
-      {% when 'Good_Choice' %}
-        <div class="feature-item">  
-            {{ block.settings.item_image }}
-          {% if block.settings.item_text != blank %}
-            <p>{{ block.settings.item_text }}</p>
-          {% endif %}
-        </div>
-    {% endcase %}
-  {% endfor %}
-  </div>
-</section>
-
-
 
 {% schema %}
 {
@@ -95,10 +96,10 @@
       "name" : "Good_Choice",
        "settings": [
         {
-          "type": "html",
-          "id": "item_image",
-          "label": "Image Svg"
-        }
+           "type" : "html",
+           "id" : "item_image",
+           "label" : "Product image"
+        },
         {
           "type" : "text",
           "id": "item_text",
