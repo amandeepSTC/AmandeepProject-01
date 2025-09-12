@@ -206,7 +206,7 @@
   }
   @media (min-width: 320px) and (max-width: 380px) {
     .skincare-essentials .toggle-buttons{
-      position: absolute;
+        position: absolute;
         left: 50%;
         top: 120px;
         min-width: 143px;
@@ -224,9 +224,126 @@
         left: 20px;
         margin: 0;
         }
+        .skincare-essentials {
+      margin-top: 40px;
+    }
+
+    .skincare-essentials .swiper-pagination {
+      display: block;
+    }
+
+    .skincare-essentials .heading {
+      margin-bottom: 20px;
+    }
+
+    .skincare-essentials .swiper {
+      width: 90%;
+      margin: 0;
+      max-width: unset;
+      position: absolute;
+      right: 0;
+      top: 63%;
+      left: 55%;
+      transform: translate(-50%, -50%);
+    }
+
+    .skincare-essentials .overlay {
+      padding: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      display: block;
+      z-index: 2;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .skincare-essentials .hero-wrapper::after {
+      height: 100%;
+    }
+
+    .skincare-essentials .heading {
+      position: absolute;
+      top: 51px;
+      left: 20px;
+      margin: 0;
+    }
+
+    .skincare-essentials .heading h3 {
+      font-size: 28px;
+      letter-spacing: 1px;
+      margin: 0 0 6px 0;
+      opacity: 0.9;
+    }
+
+    .skincare-essentials .heading h1 {
+      font-size: 36px;
+      letter-spacing: 2px;
+      margin: 0;
+      line-height: 1.05;
+    }
+
+    .skincare-essentials .toggle-buttons {
+      position: absolute;
+      left: 50%;
+      top: 170px;
+      min-width: 143px;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      padding: 6px;
+      background: rgba(194, 141, 93, 0.95);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .skincare-essentials .toggle {
+      font-size: 12px;
+      height: 28px;
+      padding: 5px 10px;
+      min-width: 60px;
+    }
+
+    .skincare-essentials .swiper-slide {
+      min-width: 230px;
+      margin-right: 0px;
+    }
+
+    .skincare-essentials .desktop-products {
+      display: none;
+    }
+
+    .skincare-essentials .product-card img {
+      border-radius: 10px;
+      height: 250px;
+    }
+
+    .skincare-essentials .mobile-products {
+      display: block;
+      position: absolute;
+      bottom: 18px;
+      left: 0;
+      width: 100%;
+      z-index: 3;
+      box-sizing: border-box;
+      padding: 0 12px;
+      pointer-events: auto;
+    }
+
+    .skincare-essentials .product-card h4 {
+      font-size: 16px;
+    }
+
+    .skincare-essentials .product-card {
+      width: 220px;
+      height: 403px;
+    }
+  }
   }
 
-  /* ========== MOBILE RESPONSIVE ========== */
   @media (min-width: 380px) and (max-width: 768px) {
     .skincare-essentials {
       margin-top: 40px;
