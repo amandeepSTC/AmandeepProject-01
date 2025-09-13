@@ -143,28 +143,23 @@
 </section>
 
 <script>
-  document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-      new Swiper("#{{ section.id }} .swiper", {
-        slidesPerView: 5,
-        spaceBetween: 20,
-        centeredSlides: false,
-        loop: true,
-        navigation: {
-          nextEl: ".normal-slider .swiper-button-next",
-          prevEl: ".normal-slider .swiper-button-prev",
-        },
-        breakpoints: {
-          0: { slidesPerView: 2 },
-          768: { slidesPerView: 3 },
-          992: { slidesPerView: 5 },
-          1200: { slidesPerView: 5 },
-        },
-      });
-    },
-    { once: true }
-  );
+  new Swiper("#{{ section.id }} .swiper", {
+  slidesPerView: 5,
+  spaceBetween: 20,
+  centeredSlides: false, // yeh hatao slide auto shift na ho
+  loop: true,
+  navigation: {
+    nextEl: "#{{ section.id }} .swiper-button-next", // correct selector
+    prevEl: "#{{ section.id }} .swiper-button-prev", // correct selector
+  },
+  breakpoints: {
+    0: { slidesPerView: 2 },
+    768: { slidesPerView: 3 },
+    992: { slidesPerView: 5 },
+    1200: { slidesPerView: 5 },
+  },
+});
+
 </script>
 
 {% schema %}
