@@ -24,14 +24,14 @@
     color: #444;
   }
 
-  .bestseller-left .btn {
+  {% comment %} .bestseller-left .btn {
     display: inline-block;
     padding: 12px 24px;
     border-radius: 25px;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
-  }
+  } {% endcomment %}
 
   .bestseller-right {
     flex: 2;
@@ -64,7 +64,7 @@
     text-transform: uppercase;
   }
 
-  .bestseller-right .collection-btn {
+  {% comment %} .bestseller-right .collection-btn {
     display: inline-block;
     padding: 8px 16px;
     border-radius: 20px;
@@ -73,7 +73,7 @@
     border: 1px solid #111;
     text-decoration: none;
     transition: all 0.3s ease;
-  }
+  } {% endcomment %}
 
   /* Swiper arrows */
   .bestseller-right .swiper-button-prev::after,
@@ -143,23 +143,28 @@
 </section>
 
 <script>
-  new Swiper("#{{ section.id }} .swiper", {
-  slidesPerView: 5,
-  spaceBetween: 20,
-  centeredSlides: false, // yeh hatao slide auto shift na ho
-  loop: true,
-  navigation: {
-    nextEl: "#{{ section.id }} .swiper-button-next", // correct selector
-    prevEl: "#{{ section.id }} .swiper-button-prev", // correct selector
-  },
-  breakpoints: {
-    0: { slidesPerView: 2 },
-    768: { slidesPerView: 3 },
-    992: { slidesPerView: 5 },
-    1200: { slidesPerView: 5 },
-  },
-});
-
+  document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+      new Swiper("#{{ section.id }} .swiper", {
+        slidesPerView: 5,
+        spaceBetween: 20,
+        centeredSlides: false,
+        loop: true,
+        navigation: {
+          nextEl: ".normal-slider .swiper-button-next",
+          prevEl: ".normal-slider .swiper-button-prev",
+        },
+        breakpoints: {
+          0: { slidesPerView: 2 },
+          768: { slidesPerView: 3 },
+          992: { slidesPerView: 5 },
+          1200: { slidesPerView: 5 },
+        },
+      });
+    },
+    { once: true }
+  );
 </script>
 
 {% schema %}
