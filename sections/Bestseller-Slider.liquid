@@ -7,7 +7,9 @@
     margin: 60px 0;
   }
 
- 
+  .bestseller-left {
+    flex: 1;
+  }
 
   .bestseller-left h2 {
     font-size: 32px;
@@ -32,6 +34,7 @@
   }
 
   .bestseller-right {
+    flex: 2;
     position: relative;
   }
 
@@ -146,7 +149,7 @@
       new Swiper("#{{ section.id }} .swiper", {
         slidesPerView: 5,
         spaceBetween: 20,
-        centeredSlides: true,
+        centeredSlides: false,
         loop: true,
         navigation: {
           nextEl: ".normal-slider .swiper-button-next",
