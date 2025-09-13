@@ -82,6 +82,7 @@
       ],
       "name": "Get Started Section",
       "settings": {
+        "margin_bottom": 10,
         "top_title": ""
       }
     },
@@ -141,6 +142,7 @@
       ],
       "name": "good Section",
       "settings": {
+        "margin_bottom": 10,
         "top_title": "Make a Good Choice"
       }
     },
@@ -215,6 +217,7 @@
       ],
       "name": "Skincare Essentials",
       "settings": {
+        "margin_bottom": 10,
         "heading_top": "SKINCARE",
         "heading_main": "ESSENTIALS"
       }
@@ -268,13 +271,67 @@
         "collection_VmWA4L"
       ],
       "name": "Shop Collection",
-      "settings": {}
+      "settings": {
+        "margin_bottom": 10
+      }
     },
     "random_hero_section_X4DqyW": {
       "type": "random-hero-section",
       "name": "random-hero-section",
       "settings": {
         "margin_bottom": 10
+      }
+    },
+    "bestseller_slider_JwNFpC": {
+      "type": "Bestseller-Slider",
+      "blocks": {
+        "collection_nqRb6q": {
+          "type": "collection",
+          "settings": {
+            "collection": "face-oils"
+          }
+        },
+        "collection_pTGx9t": {
+          "type": "collection",
+          "settings": {
+            "collection": "the-ultimate-skin-revival-collection"
+          }
+        },
+        "collection_BKY7MA": {
+          "type": "collection",
+          "settings": {
+            "collection": "toners"
+          }
+        },
+        "collection_maHT6T": {
+          "type": "collection",
+          "settings": {
+            "collection": "premium-collection"
+          }
+        },
+        "collection_K3EbyH": {
+          "type": "collection",
+          "settings": {
+            "collection": "serums-1"
+          }
+        }
+      },
+      "block_order": [
+        "collection_nqRb6q",
+        "collection_pTGx9t",
+        "collection_BKY7MA",
+        "collection_maHT6T",
+        "collection_K3EbyH"
+      ],
+      "name": "Bestseller Collections",
+      "settings": {
+        "heading": "Love Your Skin With Our Bestsellers",
+        "text": "A skincare line crafted to perfection for 50 years",
+        "button_text": "Shop All",
+        "button_link": "shopify://collections/all",
+        "button_color": "#ff7043",
+        "button_text_color": "#ffffff",
+        "collection_btn_text": "View Collection"
       }
     }
   },
@@ -284,6 +341,7 @@
     "good_choice_EGDm8Y",
     "skincare_essentials_LjhHrw",
     "shop_collection_RQLKBr",
-    "random_hero_section_X4DqyW"
+    "random_hero_section_X4DqyW",
+    "bestseller_slider_JwNFpC"
   ]
 }
