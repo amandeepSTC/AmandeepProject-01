@@ -291,12 +291,6 @@
             "collection": "face-oils"
           }
         },
-        "collection_pTGx9t": {
-          "type": "collection",
-          "settings": {
-            "collection": "the-ultimate-skin-revival-collection"
-          }
-        },
         "collection_BKY7MA": {
           "type": "collection",
           "settings": {
@@ -318,7 +312,6 @@
       },
       "block_order": [
         "collection_nqRb6q",
-        "collection_pTGx9t",
         "collection_BKY7MA",
         "collection_maHT6T",
         "collection_K3EbyH"
