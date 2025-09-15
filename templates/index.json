@@ -285,18 +285,6 @@
     "bestseller_slider_JwNFpC": {
       "type": "Bestseller-Slider",
       "blocks": {
-        "collection_nqRb6q": {
-          "type": "collection",
-          "settings": {
-            "collection": "face-oils"
-          }
-        },
-        "collection_pTGx9t": {
-          "type": "collection",
-          "settings": {
-            "collection": "the-ultimate-skin-revival-collection"
-          }
-        },
         "collection_BKY7MA": {
           "type": "collection",
           "settings": {
@@ -317,14 +305,13 @@
         }
       },
       "block_order": [
-        "collection_nqRb6q",
-        "collection_pTGx9t",
         "collection_BKY7MA",
         "collection_maHT6T",
         "collection_K3EbyH"
       ],
       "name": "Bestseller Collections",
       "settings": {
+        "margin_bottom": 80,
         "heading": "Love Your Skin With Our Bestsellers",
         "text": "A skincare line crafted to perfection for 50 years",
         "button_text": "Shop All",
