@@ -302,12 +302,33 @@
           "settings": {
             "collection": "serums-1"
           }
+        },
+        "collection_7Vji7E": {
+          "type": "collection",
+          "settings": {
+            "collection": "face-oil-1"
+          }
+        },
+        "collection_dFetGx": {
+          "type": "collection",
+          "settings": {
+            "collection": "stylish-bags"
+          }
+        },
+        "collection_qeMDwF": {
+          "type": "collection",
+          "settings": {
+            "collection": "small-bags"
+          }
         }
       },
       "block_order": [
         "collection_BKY7MA",
         "collection_maHT6T",
-        "collection_K3EbyH"
+        "collection_K3EbyH",
+        "collection_7Vji7E",
+        "collection_dFetGx",
+        "collection_qeMDwF"
       ],
       "name": "Bestseller Collections",
       "settings": {
