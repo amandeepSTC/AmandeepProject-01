@@ -341,6 +341,11 @@
         "button_text_color": "#ffffff",
         "collection_btn_text": "View Collection"
       }
+    },
+    "story_section_FqY3An": {
+      "type": "story-section",
+      "name": "Our story",
+      "settings": {}
     }
   },
   "order": [
@@ -350,6 +355,7 @@
     "skincare_essentials_LjhHrw",
     "shop_collection_RQLKBr",
     "random_hero_section_X4DqyW",
-    "bestseller_slider_JwNFpC"
+    "bestseller_slider_JwNFpC",
+    "story_section_FqY3An"
   ]
 }
