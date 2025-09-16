@@ -22,6 +22,7 @@
     font-weight: 700;
     margin-bottom: 15px;
     color: #111;
+    text-align: left;
   }
   .bestseller-section-{{ section.id }}
   .custom {
@@ -49,7 +50,7 @@
     transition: all 0.3s ease;
   }
   .bestseller-section-{{ section.id }} .swiper-button-next:after,
-  .bestseller-section-{{ section.id }}  .swiper-button-prev:after {
+  .bestseller-section-{{ section.id }} .swiper-button-prev:after {
     display: none;
   }
 
@@ -68,6 +69,7 @@
   .bestseller-section-{{ section.id }}
   .bestseller-right {
     width: 851px;
+    padding: 0px 0px 0px 20px;
     height: 480px;
     position: relative;
   }
@@ -113,7 +115,6 @@
     font-size: 16px;
     /* arrow size */
   }
-
   .bestseller-section-{{ section.id }}
   .swiper-{{ section.id }}
   .swiper-prev-{{ section.id }} {
@@ -137,12 +138,62 @@
       flex-direction: column;
       text-align: center;
     }
+    
+    .bestseller-section-{{ section.id }}
+    .collection-btn .btn-price {
+      display: none;
+    }
      .bestseller-section-{{ section.id }}
-     .collection-image {
-     object-fit: cover;
-     border-radius: 12px;
-     width: 100%;
+     .bestseller-left .btn {
+    display: inline-block;
+    padding: 10px 62px;
+    position: absolute;
+    left: 0;
+    border-radius: 25px;
+    background: #DB763F !important;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
   }
+    .bestseller-section-{{ section.id }}
+    .collection-image {
+      object-fit: cover;
+      border-radius: 12px;
+      width: 100%;
+    }
+    .bestseller-section-{{ section.id }}
+    .collection-btn {
+      display: inline-block;
+      padding: 3px 35px;
+      border-radius: 20px;
+      font-size: 17px;
+      font-weight: 600;
+      border: 1px solid #111;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .bestseller-section-{{ section.id }}
+    .swiper-slide {
+      transition: all 0.3s ease;
+      transform: scale(0.9);
+      opacity: 0.7;
+    }
+
+    .bestseller-section-{{ section.id }}
+    .swiper-slide-active {
+      transform: scale(1.0);
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .bestseller-section-{{ section.id }}
+    .swiper-slide-next
+    , .bestseller-section-{{ section.id }}
+    .swiper-slide-prev {
+      transform: scale(0.85);
+      opacity: 0.85;
+      z-index: 1;
+    }
 
 
     .bestseller-section-{{ section.id }}
@@ -151,35 +202,28 @@
       margin-bottom: 20px;
     }
     .bestseller-section-{{ section.id }}
-  .left-btn {
-        left: 29%;
-        top: 495px;
-  }
-   .bestseller-section-{{ section.id }}
-  .right-btn {
-       right: 44%;
-        top: 495px;
-  }
+    .left-btn {
+      left: 38%;
+      top: 495px;
+    }
+    .bestseller-section-{{ section.id }}
+    .right-btn {
+      right: 35%;
+      top: 495px;
+    }
 
     .bestseller-section-{{ section.id }}
     .bestseller-right {
       width: 100%;
-      left: 20px;
     }
 
     .bestseller-section-{{ section.id }}.swiper-button-prev,
     .swiper-button-next {
       display: none;
     }
-  }
-
-  /* Tablet */
-  @media (min-width: 768px) and (max-width: 1199px) {
-    .bestseller-left {
-      max-width: 45%;
-    }
-    .bestseller-right {
-      max-width: 55%;
+    #par {
+      text-align: left;
+      letter-spacing: normal;
     }
   }
 
@@ -188,7 +232,7 @@
 <section class="bestseller-section-{{ section.id }}">
   <div class="bestseller-left">
     <h2>{{ section.settings.heading }}</h2>
-    <p>{{ section.settings.text }}</p>
+    <p id="par">{{ section.settings.text }}</p>
     <a
       href="{{ section.settings.button_link }}"
       class="btn"
@@ -212,7 +256,9 @@
               <div class="collection-title">{{ coll.title | strip_html | split: ' ' | slice: 0, 2 | join: ' ' }}</div>
               <p class="custom">Pro Youth Serum</p>
               <a href="{{ coll.url }}" class="collection-btn">
-                ADD TO BAG - ₹ 6045
+                <span class="btn-text">ADD TO BAG</span>
+                <span class="btn-price">
+                  - ₹ 6045</span>
               </a>
             </div>
           {% endif %}

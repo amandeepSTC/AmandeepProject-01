@@ -76,20 +76,13 @@
   }
 
 
-  .normal-slider .swiper-slide.swiper-slide-active {
-    opacity: 1;
-    z-index: 2;
-    transform: scale(1.05);
-  }
-
-  /* ✅ Custom arrow wrapper */
   .normal-slider .slider-arrows {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 40px;
+    gap: 20px;
     align-items: center;
   }
 
@@ -97,6 +90,35 @@
   .normal-slider .swiper-button-next {
     position: static;
     cursor: pointer;
+  }
+  .normal-slider .swiper-slide {
+    transition: transform 0.4s ease
+    , opacity 0.4s ease;
+    transform: scale(0.8);
+    /* default small */
+    opacity: 0.6;
+  }
+
+  /* Center slide bada */
+  .normal-slider .swiper-slide.swiper-slide-active {
+    transform: scale(1.0);
+    opacity: 1;
+    z-index: 3;
+  }
+
+  /* Side slides (prev, next) medium size */
+  .normal-slider .swiper-slide.swiper-slide-prev,
+  .normal-slider .swiper-slide.swiper-slide-next {
+    transform: scale(0.85);
+    opacity: 0.9;
+    z-index: 2;
+  }
+
+  /* Extreme slides (leftmost, rightmost) aur chhote */
+  .normal-slider .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(.swiper-slide-next) {
+    transform: scale(0.8);
+    opacity: 0.6;
+    z-index: 1;
   }
 
 
@@ -113,14 +135,27 @@
 
     .normal-slider .slider-arrows {
       bottom: 10px;
-      gap: 2;
+      gap: 15;
     }
 
     .collection-image {
       width: 180px;
       /* mobile */
       height: 245px;
-
+    }
+    @media screen and (max-width: 768px) {
+      .normal-slider .swiper-slide {
+        transform: scale(0.7);
+        opacity: 0.5;
+      }
+      .normal-slider .swiper-slide.swiper-slide-active {
+        opacity: 1;
+      }
+      .normal-slider .swiper-slide.swiper-slide-prev,
+      .normal-slider .swiper-slide.swiper-slide-next {
+        transform: scale(0.85);
+        opacity: 0.8;
+      }
     }
   }
 </style>
@@ -167,7 +202,7 @@
 <script>
   const swiper = new Swiper(".normal-slider .swiper", {
     slidesPerView: 5,
-    spaceBetween: 20,
+    spaceBetween: 10,
      centeredSlides: true,
      loop : true,
     navigation: {
