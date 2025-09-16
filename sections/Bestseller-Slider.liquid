@@ -28,6 +28,7 @@
     font-weight: 700;
     box-sizing: border-box;
     font-size: 20px;
+    text-align: left;
     padding: 0;
     margin-top: 0;
   }
@@ -47,14 +48,22 @@
     text-decoration: none;
     transition: all 0.3s ease;
   }
-   .bestseller-section-{{ section.id }} .swiper-button-next:after, .swiper-button-prev:after {
+  .bestseller-section-{{ section.id }} .swiper-button-next:after,
+  .bestseller-section-{{ section.id }}  .swiper-button-prev:after {
     display: none;
   }
 
-   .bestseller-section-{{ section.id }} .swiper-button-next svg, .swiper-button-prev svg  {
-        width: 32%;
-       object-fit: contain;
-       transform-origin: center;
+  .bestseller-section-{{ section.id }}
+  .left-btn svg
+  , .bestseller-section-{{ section.id }}
+  .right-btn svg {
+    width: 32%;
+    object-fit: contain;
+    transform-origin: center;
+  }
+  .bestseller-section-{{ section.id }}
+  .left-btn {
+    left: 755px;
   }
   .bestseller-section-{{ section.id }}
   .bestseller-right {
@@ -79,9 +88,10 @@
   .collection-title {
     font-size: 15px;
     text-transform: uppercase;
+    text-align: left;
   }
- 
-  
+
+
   .bestseller-section-{{ section.id }}
   .swiper-button-prev
   , .bestseller-section-{{ section.id }}
@@ -109,7 +119,7 @@
   .swiper-prev-{{ section.id }} {
     left: 753px
   }
-  
+
   .bestseller-section-{{ section.id }}
   .collection-btn {
     display: inline-block;
@@ -121,6 +131,59 @@
     text-decoration: none;
     transition: all 0.3s ease;
   }
+  /* Mobile */
+  @media (max-width: 767px) {
+    .bestseller-section-{{ section.id }} {
+      flex-direction: column;
+      text-align: center;
+    }
+     .bestseller-section-{{ section.id }}
+     .collection-image {
+     object-fit: cover;
+     border-radius: 12px;
+     width: 100%;
+  }
+
+
+    .bestseller-section-{{ section.id }}
+    .bestseller-left {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+    .bestseller-section-{{ section.id }}
+  .left-btn {
+        left: 29%;
+        top: 495px;
+  }
+   .bestseller-section-{{ section.id }}
+  .right-btn {
+       right: 44%;
+        top: 495px;
+  }
+
+    .bestseller-section-{{ section.id }}
+    .bestseller-right {
+      width: 100%;
+      left: 20px;
+    }
+
+    .bestseller-section-{{ section.id }}.swiper-button-prev,
+    .swiper-button-next {
+      display: none;
+    }
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .bestseller-left {
+      max-width: 45%;
+    }
+    .bestseller-right {
+      max-width: 55%;
+    }
+  }
+
+
 </style>
 <section class="bestseller-section-{{ section.id }}">
   <div class="bestseller-left">
@@ -137,7 +200,7 @@
   <div class="bestseller-right">
     <div class="swiper swiper-{{ section.id }}">
       <div class="swiper-wrapper">
-          {% for block in section.blocks %}
+        {% for block in section.blocks %}
           {% assign coll = collections[block.settings.collection] %}
           {% if coll != blank %}
             <div class="swiper-slide">
@@ -156,8 +219,8 @@
         {% endfor %}
       </div>
       <!-- Arrows -->
-      <div class="swiper-button-prev swiper-prev-{{ section.id }}">{%  render 'left-arrow-2' %}</div>
-      <div class="swiper-button-next swiper-next-{{ section.id }}">{%  render 'right-arrow-2' %}</div>
+      <div class="swiper-button-prev left-btn">{% render 'left-arrow-2' %}</div>
+      <div class="swiper-button-next right-btn">{% render 'right-arrow-2' %}</div>
     </div>
 
   </div>
@@ -169,15 +232,11 @@
     spaceBetween: 10,
     loop : true,
     navigation: {
-      nextEl: ".swiper-next-{{ section.id }}",
-      prevEl: ".swiper-prev-{{ section.id }}",
+      nextEl: ".right-btn",
+      prevEl: ".left-btn",
     },
-    pagination: {
-    el: ".swiper-progress-{{ section.id }}",
-    type: "progressbar",
-  },
     breakpoints: {
-      0: { slidesPerView: 1.2 },
+      0: { slidesPerView: 1.7 },
       768: { slidesPerView: 2 },
       1200: { slidesPerView: 3 }
     }
