@@ -200,14 +200,14 @@
   </div>
 </section>
 <script>
-  const swiper = new Swiper(".normal-slider .swiper", {
+  const shopCollectionSwiper{{- section.id | remove: "--" | remove: "__" | remove: "-" }} = new Swiper(".shop-collection .swiper", {
     slidesPerView: 5,
     spaceBetween: 10,
      centeredSlides: true,
      loop : true,
     navigation: {
-      nextEl: ".normal-slider .swiper-button-next",
-      prevEl: ".normal-slider .swiper-button-prev",
+      nextEl: ".shop-collection .swiper-button-next",
+      prevEl: ".shop-collection .swiper-button-prev",
     },
     breakpoints: {
         0: { slidesPerView: 2 },

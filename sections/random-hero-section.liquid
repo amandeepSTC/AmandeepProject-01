@@ -1,106 +1,10 @@
- <style>
+{{ 'random-hero.css' | asset_url | stylesheet_tag }}
+
+
+<style>
   .hero-{{ section.id }} {
       margin-bottom: {{ section.settings.margin_bottom }}px;
   }
-
-  .hero {
-    width: 100%;
-    position: relative;
-  }
-
-  .hero-img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  /* overlay content base */
-  .pos {
-    position: absolute;
-    color: #fff;
-    z-index: 2;
-  }
-
-  /* desktop version */
-  .desktop-text {
-    width: 445px;
-    top: 15%;
-    left: 5%;
-  }
-
-  .desktop-text h2 {
-    font-size: 45px;
-    color: #ffffff;
-    font-weight: 700;
-    margin-bottom: 15px;
-  }
-
-.shop-btn {
-  color: #fff;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: 600;
-  height: 40px;
-  max-width: 171px;
-  margin-top: 5px;
-  text-decoration: none; 
-  border : none;
-      font-size: 22px;
-    cursor: pointer;
-    padding: 11px 39px;
-}
-
-
-.shop-btn:hover {
-  background: #d65b0c;
-}
-
-
-.desktop-text p,
-.mobile-text p {
-  font-size: 24px; 
-  line-height: 1.3;
-}
-
-
-@media (max-width: 767px) {
-  .desktop-text {
-    display: none;
-  }
-
-  .mobile-text {
-    display: flex;
-    flex-direction: column;
-    top: 10%;
-    color: #ffffff;
-    left: 7%;
-    width: 83%;
-  }
-
-  .mobile-text h2 {
-    color: #ffffff;
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 5px;
-  }
-
-  .mobile-text p {
-    margin-top: 9px;
-    margin-bottom: 8px;
-  }
-
-  .mobile-text .shop-btn {
-    width: 50%;
-    max-width: 100%;
-    font-size: 18px;
-    height: auto;
-    padding: 10px 0;
-    text-align: center;
-  }
-}
-
 </style>
 
 <section class="hero hero-{{ section.id }}">
@@ -146,22 +50,21 @@
 </section>
 
 <script>
-  const swiper = new Swiper(".story-section .swiper", {
-    slidesPerView: 5,
-    spaceBetween: 10,
-     centeredSlides: true,
-     loop : true,
-    navigation: {
-      nextEl: ".normal-slider .swiper-button-next",
-      prevEl: ".normal-slider .swiper-button-prev",
-    },
-    breakpoints: {
-        0: { slidesPerView: 2 },
-        768: { slidesPerView: 3 },
-        992: { slidesPerView: 5 },
-        1200: { slidesPerView: 5 },
-     
-    },
+  document.addEventListener('DOMContentLoaded', function () {
+    const randomSwiper{{- section.id | remove: "--" | remove: "__" | remove: "-" }} = new Swiper('.hero-{{ section.id }} .swiper', {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+      },
+      pagination: {
+        el: '.hero-{{ section.id }} .swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.hero-{{ section.id }} .swiper-button-next',
+        prevEl: '.hero-{{ section.id }} .swiper-button-prev',
+      },
+    });
   });
 </script>
 {% schema %}

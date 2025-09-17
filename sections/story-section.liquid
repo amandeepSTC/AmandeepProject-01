@@ -98,7 +98,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const swiper = new Swiper(".story-section .swiper", {
+    const SwiperStory{{- section.id | remove: "--" | remove: "__" | remove: "-" }} = new Swiper(".story-section .swiper", {
       slidesPerView: 1.5,
       spaceBetween: 10,
       loop: true,
