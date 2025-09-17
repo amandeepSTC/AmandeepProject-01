@@ -344,6 +344,37 @@
     },
     "story_section_FqY3An": {
       "type": "story-section",
+      "blocks": {
+        "swiper_block_G9BMdp": {
+          "type": "swiper-block",
+          "settings": {
+            "Top_Image": "shopify://shop_images/data-quality_1.png",
+            "Title": "Quality",
+            "Text": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+          }
+        },
+        "swiper_block_YyTT9b": {
+          "type": "swiper-block",
+          "settings": {
+            "Top_Image": "shopify://shop_images/data-quality_1.png",
+            "Title": "Quality",
+            "Text": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+          }
+        },
+        "swiper_block_fMW4Ei": {
+          "type": "swiper-block",
+          "settings": {
+            "Top_Image": "shopify://shop_images/data-quality_1.png",
+            "Title": "Quality",
+            "Text": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+          }
+        }
+      },
+      "block_order": [
+        "swiper_block_G9BMdp",
+        "swiper_block_YyTT9b",
+        "swiper_block_fMW4Ei"
+      ],
       "name": "Our story",
       "settings": {
         "margin_bottom": 10,
