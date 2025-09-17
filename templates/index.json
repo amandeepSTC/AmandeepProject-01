@@ -386,7 +386,7 @@
       ],
       "name": "Our story",
       "settings": {
-        "margin_bottom": 10,
+        "margin_bottom": 50,
         "section_video": "shopify://files/videos/mov_bbb.mp4",
         "section_image": "shopify://shop_images/image_33.jpg",
         "section_heading": "Know Our Story",
