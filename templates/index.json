@@ -345,7 +345,17 @@
     "story_section_FqY3An": {
       "type": "story-section",
       "name": "Our story",
-      "settings": {}
+      "settings": {
+        "margin_bottom": 10,
+        "section_image": "shopify://shop_images/image_33.jpg",
+        "section_heading": "Know Our Story",
+        "Description": "Amanté is an international intimate wear brand, offering comfort, fashion, and sensuality to the modern South Asian woman. 5 words which describe the amanté woman, and the philosophies embedded in each of our designs are: Spirited. Sensual. Sophisticated. Stylish. Self-assured.                                                                    Our products are made for the ever evolving modern woman of today who just like fashion, is an ever-evolving canvas. Her tastes, roles, goals, ambitions and even her body are in a constant state of evolution. We at amanté, understand and embrace these changes.",
+        "btn_backgroudColor": "#db763f",
+        "btn_text": "Read Me",
+        "Icon_one": "shopify://shop_images/Group_240856.png",
+        "Icon_two": "shopify://shop_images/Group_240857.png",
+        "Icon_three": "shopify://shop_images/Group_240858_2.png"
+      }
     }
   },
   "order": [
