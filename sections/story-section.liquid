@@ -1,139 +1,139 @@
+{{ 'story-section.css' | asset_url | stylesheet_tag }}
+
 <style>
+
   .story-section {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 40px;
     margin-bottom: {{ section.settings.margin_bottom }}px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .story-section .left {
-    flex: 1;
-  }
-
-  .story-section .left img,
-  .story-section .left video {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-    display: block;
-  }
-
-  .story-section .right {
-    flex: 1;
-  }
-
-  .story-section .right h2 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #111;
-  }
-
-  .story-section .right .text span {
-    display: block;
-    margin-bottom: 15px;
-    line-height: 1.6;
-    font-size: 15px;
-    color: #444;
   }
 
   .story-section .right button {
     background: {{ section.settings.btn_backgroudColor }};
-    color: #fff;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    margin: 20px 0;
-  }
-
-  .story-section .swiper {
-    display: flex;
-    gap: 20px;
-    margin-top: 30px;
-  }
-
-  .story-section .swiper-block {
-    flex: 1;
-    text-align: center;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-
-  .story-section .swiper-block img {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 10px;
-  }
-
-  .story-section .swiper-block h4 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-
-  .story-section .swiper-block p {
-    font-size: 14px;
-    line-height: 1.4;
-    color: #555;
   }
 </style>
 
 
-<section class="story-section">
-  <!-- Left Side -->
-  <div class="left">
-    {% if section.settings.section_video != blank %}
-      <video id="storyVideo" muted playsinline preload="none" width="600">
-        <source src="{{ section.settings.section_video | video_url }}" type="video/mp4">
-      </video> 
-    {% elsif section.settings.section_image != blank %}
-      {{ section.settings.section_image | image_url: width: 800 | image_tag: alt: 'Story image' }}
-    {% endif %}
-  </div>
-
-  <!-- Right Side -->
-  <div class="right">
-    {% if section.settings.section_heading != blank %}
-      <h2>{{ section.settings.section_heading }}</h2>
-    {% endif %}
-
-    <div class="text">
-      {% if section.settings.Description != blank %}
-        <span>{{ section.settings.Description }}</span>
+<section id="{{ section.id }}" class="story-section">
+  <div class="local">
+    <!-- Left Side -->
+    <div class="left">
+      {% if section.settings.section_video != blank %}
+        {{ section.settings.section_video | video_tag: controls: true, autoplay: false, muted: true, loop: true,  class: 'story-video'  }}
+      {% elsif section.settings.section_image != blank %}
+        {{ section.settings.section_image | image_url: width: 800 | image_tag: alt: 'Story image' }}
       {% endif %}
+
     </div>
 
-    {% if section.settings.btn_text != blank %}
-      <button>{{ section.settings.btn_text }}</button>
-    {% endif %}
+    <!-- Right Side -->
+    <div class="right">
+      {% if section.settings.section_heading != blank %}
+        <h2>{{ section.settings.section_heading }}</h2>
+      {% endif %}
 
-    <!-- Swiper Blocks -->
-    <div class="swiper">
-      {% for block in section.blocks %}
-        <div class="swiper-block">
-          {% if block.settings.Top_Image != blank %}
-            {{ block.settings.Top_Image | image_url: width: 100 | image_tag: alt: block.settings.Title }}
-          {% endif %}
-          {% if block.settings.Title != blank %}
-            <h4>{{ block.settings.Title }}</h4>
-          {% endif %}
-          {% if block.settings.Text != blank %}
-            <p>{{ block.settings.Text }}</p>
-          {% endif %}
+      <div class="text">
+        <span>{{ section.settings.Description }}</span>
+      </div>
+
+      {% if section.settings.btn_text != blank %}
+        <button>{{ section.settings.btn_text }}<span>{% render 'small-right' %}</span>
+        </button>
+      {% endif %}
+
+      <!-- Swiper Blocks -->
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide">
+              {% if block.settings.Top_Image != blank %}
+                {{ block.settings.Top_Image | image_url: width: 100 | image_tag: alt: block.settings.Title }}
+              {% endif %}
+              {% if block.settings.Title != blank %}
+                <h4>{{ block.settings.Title }}</h4>
+              {% endif %}
+              {% if block.settings.Text != blank %}
+                <p>{{ block.settings.Text }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}
         </div>
-      {% endfor %}
+
+        <!-- ❌ pagination removed -->
+        <!-- ✅ custom nav arrows -->
+        <div class="swiper-button-prev">
+          <!-- left arrow SVG -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="black"
+            stroke-width="2"><path d="M15 18l-6-6 6-6" /></svg>
+        </div>
+        <div class="swiper-button-next">
+          <!-- right arrow SVG -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="black"
+            stroke-width="2"><path d="M9 6l6 6-6 6" /></svg>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="bottom-div">
+    {% if section.settings.Icon_one != blank %}
+      {{ section.settings.Icon_one | image_url: width: 130 | image_tag: alt: 'Icon one', class: 'bottom-icon' }}
+    {% endif %}
+    {% if section.settings.Icon_two != blank %}
+      {{ section.settings.Icon_two | image_url: width: 100 | image_tag: alt: 'Icon two', class: 'bottom-icon' }}
+    {% endif %}
+    {% if section.settings.Icon_three != blank %}
+      {{ section.settings.Icon_three | image_url: width: 150 | image_tag: alt: 'Icon three', class: 'bottom-icon' }}
+    {% endif %}
   </div>
 </section>
 
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const swiper = new Swiper(".story-section .swiper", {
+      slidesPerView: 1.5,
+      spaceBetween: 10,
+      loop: true,
+      navigation: {
+        nextEl: ".story-section .swiper-button-next",
+        prevEl: ".story-section .swiper-button-prev",
+      },
+      // ❌ pagination removed
+      breakpoints: {
+        0: { slidesPerView: 2 },
+        768: { slidesPerView: 3 },
+        992: { slidesPerView: 2 },
+        1200: { slidesPerView: 1.5 },
+      },
+    });
+    const video = document.querySelector(".story-video");
+
+    if (video) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              video.play().catch(err => console.log("Autoplay blocked:", err));
+            } else {
+              video.pause();
+            }
+          });
+        },
+        { threshold: 0.5 } // kam se kam 50% visible hona chahiye
+      );
+
+      observer.observe(video);
+    }
+  });
+</script>
 
 {% schema %}
   {
@@ -164,7 +164,7 @@
         "id": "section_heading",
         "label": "Section tag"
       }, {
-        "type": "text",
+        "type": "textarea",
         "id": "Description",
         "label": "Description"
       }, {
@@ -175,18 +175,15 @@
         "type": "text",
         "id": "btn_text",
         "label": "Button text"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "Icon_one",
         "label": "Icon one"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "Icon_two",
         "label": "Icon two"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "Icon_three",
         "label": "Icon three"
@@ -205,8 +202,7 @@
             "type": "text",
             "id": "Title",
             "label": "Title"
-          },
-          {
+          }, {
             "type": "text",
             "id": "Text",
             "label": "Text"

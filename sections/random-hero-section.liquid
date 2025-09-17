@@ -146,21 +146,22 @@
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    new Swiper('.hero-swiper', {
-      loop: true,
-      autoplay: {
-        delay: 3000,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
+  const swiper = new Swiper(".story-section .swiper", {
+    slidesPerView: 5,
+    spaceBetween: 10,
+     centeredSlides: true,
+     loop : true,
+    navigation: {
+      nextEl: ".normal-slider .swiper-button-next",
+      prevEl: ".normal-slider .swiper-button-prev",
+    },
+    breakpoints: {
+        0: { slidesPerView: 2 },
+        768: { slidesPerView: 3 },
+        992: { slidesPerView: 5 },
+        1200: { slidesPerView: 5 },
+     
+    },
   });
 </script>
 {% schema %}
