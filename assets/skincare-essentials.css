@@ -204,7 +204,15 @@
     position: relative;
     margin-top: 15px;
   }
+   
+   .skincare-essentials .subtitle {
+    font-size: 12px;
+  }
 
+  .skincare-essentials .add-to-bag {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
   .skincare-essentials .swiper-pagination-bullet-active {
     background: #c28d5d;
   }
@@ -332,7 +340,6 @@
     .skincare-essentials {
       margin-top: 40px;
     }
-
     .skincare-essentials .swiper-pagination {
       display: block;
     }
@@ -448,45 +455,3 @@
       height: 403px;
     }
   }
-
-  .skincare-essentials .subtitle {
-    font-size: 12px;
-  }
-
-  .skincare-essentials .add-to-bag {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-}
-
-/* ========== TABLET RESPONSIVE ========== */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .skincare-essentials .heading {
-    position: static;
-    margin-bottom: -145px;
-  }
-
-  .skincare-essentials .heading h3 {
-    font-size: 48px;
-  }
-
-  .skincare-essentials .heading h1 {
-    font-size: 64px;
-  }
-
-  .skincare-essentials .toggle-buttons {
-    position: static;
-    align-self: flex-end;
-    margin-bottom: 20px;
-  }
-
-  .skincare-essentials .swiper {
-    margin-right: 0;
-  }
-
-  .skincare-essentials .product-grid {
-    position: static;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-}
