@@ -1,0 +1,62 @@
+   
+  .get-started .item {
+  text-decoration: none; /* ✅ removes underline on whole link */
+}
+
+.get-started .collection-image {
+  width: 323px;     /* ✅ fixed width */
+  height: 419px;    /* ✅ fixed height */
+  object-fit: cover; /* nicely cropped */
+  border-radius: 10px;
+}
+
+.get-started .collection-title {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;       /* ✅ black color */
+  text-decoration: none; /* ✅ remove underline */
+}
+
+  .get-started {
+    text-align: center;
+    padding: 10px 10px;
+  }
+  
+
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  h2 {
+     font-size : 28px;
+     font-weight: 600;
+  }
+
+  .get-started-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+
+  .get-started .item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .get-started .item p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 500px) {
+    .get-started-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns */
+      column-gap: 6px;  /* horizontal gap */
+      row-gap: 10px;    /* vertical gap */
+    }
+  }

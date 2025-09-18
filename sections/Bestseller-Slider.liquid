@@ -1,234 +1,19 @@
+{{ 'bestseller-collection.css' | asset_url | stylesheet_tag }}
 <style>
-  .bestseller-section-{{ section.id }} {
-    margin-bottom: {{ section.settings.margin_bottom }}px;
+   .bestseller-section {
+    margin-bottom: {{ section.settings.section_margin_bottom }}px;
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
   }
-  .bestseller-section-{{ section.id }} {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 10px;
-  }
-  .bestseller-section-{{ section.id }}
-  .bestseller-left {
-    width: 340px;
-    height: 232px;
-    position: relative;
-    top: -50px;
-  }
-  .bestseller-section-{{ section.id }}
-  .bestseller-left h2 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #111;
-    text-align: left;
-  }
-  .bestseller-section-{{ section.id }}
-  .custom {
-    font-weight: 700;
-    box-sizing: border-box;
-    font-size: 20px;
-    text-align: left;
-    padding: 0;
-    margin-top: 0;
-  }
-  .bestseller-section-{{ section.id }}
-  .bestseller-left p {
-    font-size: 22px;
-    margin-bottom: 20px;
-    color: #444;
-  }
-  .bestseller-section-{{ section.id }}
-  .bestseller-left .btn {
-    display: inline-block;
-    padding: 10px 62px;
-    border-radius: 25px;
-    background: #DB763F !important;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  .bestseller-section-{{ section.id }} .swiper-button-next:after,
-  .bestseller-section-{{ section.id }} .swiper-button-prev:after {
-    display: none;
-  }
-
-  .bestseller-section-{{ section.id }}
-  .left-btn svg
-  , .bestseller-section-{{ section.id }}
-  .right-btn svg {
-    width: 32%;
-    object-fit: contain;
-    transform-origin: center;
-  }
-  .bestseller-section-{{ section.id }}
-  .left-btn {
-    left: 755px;
-  }
-  .bestseller-section-{{ section.id }}
-  .bestseller-right {
-    width: 851px;
-    padding: 0px 0px 0px 20px;
-    height: 480px;
-    position: relative;
-  }
-  .bestseller-section-{{ section.id }}
-  .collection-image {
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    width: 270px;
-    height: 289px;
-  }
-  .bestseller-section-{{ section.id }}
-  .bestseller-right .swiper {
-    position: static;
-  }
-
-  .bestseller-section-{{ section.id }}
-  .collection-title {
-    font-size: 15px;
-    text-transform: uppercase;
-    text-align: left;
-  }
-
-
-  .bestseller-section-{{ section.id }}
-  .swiper-button-prev
-  , .bestseller-section-{{ section.id }}
-  .swiper-button-next {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    /* circle */
-    border: 2px solid #000;
-    /* black outline */
-    background: #fff;
-    top: 481px;
-    /* white background (optional) */
-    color: #000;
-    /* arrow ka color black */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    /* arrow size */
-  }
-  .bestseller-section-{{ section.id }}
-  .swiper-{{ section.id }}
-  .swiper-prev-{{ section.id }} {
-    left: 753px
-  }
-
-  .bestseller-section-{{ section.id }}
-  .collection-btn {
-    display: inline-block;
-    padding: 3px 35px;
-    border-radius: 20px;
-    font-size: 17px;
-    font-weight: 600;
-    border: 1px solid #111;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  /* Mobile */
   @media (max-width: 767px) {
-    .bestseller-section-{{ section.id }} {
-      flex-direction: column;
-      text-align: center;
-    }
-    
-    .bestseller-section-{{ section.id }}
-    .collection-btn .btn-price {
-      display: none;
-    }
-     .bestseller-section-{{ section.id }}
-     .bestseller-left .btn {
-    display: inline-block;
-    padding: 10px 62px;
-    position: absolute;
-    left: 0;
-    border-radius: 25px;
-    background: #DB763F !important;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-    .bestseller-section-{{ section.id }}
-    .collection-image {
-      object-fit: cover;
-      border-radius: 12px;
-      width: 100%;
-    }
-    .bestseller-section-{{ section.id }}
-    .collection-btn {
-      display: inline-block;
-      padding: 3px 35px;
-      border-radius: 20px;
-      font-size: 17px;
-      font-weight: 600;
-      border: 1px solid #111;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    .bestseller-section-{{ section.id }}
-    .swiper-slide {
-      transition: all 0.3s ease;
-      transform: scale(0.9);
-      opacity: 0.7;
-    }
-
-    .bestseller-section-{{ section.id }}
-    .swiper-slide-active {
-      transform: scale(1.0);
-      opacity: 1;
-      z-index: 2;
-    }
-
-    .bestseller-section-{{ section.id }}
-    .swiper-slide-next
-    , .bestseller-section-{{ section.id }}
-    .swiper-slide-prev {
-      transform: scale(0.85);
-      opacity: 0.85;
-      z-index: 1;
-    }
-
-
-    .bestseller-section-{{ section.id }}
-    .bestseller-left {
-      max-width: 100%;
-      margin-bottom: 20px;
-    }
-    .bestseller-section-{{ section.id }}
-    .left-btn {
-      left: 38%;
-      top: 495px;
-    }
-    .bestseller-section-{{ section.id }}
-    .right-btn {
-      right: 35%;
-      top: 495px;
-    }
-
-    .bestseller-section-{{ section.id }}
-    .bestseller-right {
-      width: 100%;
-    }
-
-    .bestseller-section-{{ section.id }}.swiper-button-prev,
-    .swiper-button-next {
-      display: none;
-    }
-    #par {
-      text-align: left;
-      letter-spacing: normal;
+    .bestseller-section {
+      margin-bottom: {{ section.settings.section_margin_bottom_mobile }}px;
+      padding-top: {{ section.settings.section_padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_mobile }}px;
     }
   }
-
-
 </style>
-<section class="bestseller-section-{{ section.id }}">
+<section class="bestseller-section bestseller-section-{{ section.id }}">
   <div class="bestseller-left">
     <h2>{{ section.settings.heading }}</h2>
     <p id="par">{{ section.settings.text }}</p>
@@ -293,14 +78,68 @@
     "name": "Bestseller Collections",
     "settings": [
       {
+        "type": "header",
+        "content": "Spacing - Desktop"
+      },
+      {
         "type": "range",
-        "id": "margin_bottom",
+        "id": "section_margin_bottom",
         "min": 0,
         "max": 100,
         "step": 5,
         "unit": "px",
-        "label": "Section bottom Margin",
+        "label": "Section margin-bottom",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "section_padding_top",
+        "min": 10,
+        "max": 60,
+        "step": 2,
+        "unit": "px",
+        "label": "Inner Spacing Top padding",
         "default": 10
+      },
+      {
+        "type": "range",
+        "id": "section_padding_bottom",
+        "min": 10,
+        "max": 60,
+        "step": 2,
+        "unit": "px",
+        "label": "Inner Spacing Bottom padding",
+        "default": 10
+      }, {
+        "type": "header",
+        "content": "Spacing - Mobile"
+      }, {
+        "type": "range",
+        "id": "section_margin_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Section Spacing margin_bottom",
+        "default": 0
+      }, {
+        "type": "range",
+        "id": "section_padding_top_mobile",
+        "min": 10,
+        "max": 60,
+        "step": 2,
+        "unit": "px",
+        "label": "Inner Spacing padding Top",
+        "default": 20
+      }, {
+        "type": "range",
+        "id": "section_padding_bottom_mobile",
+        "min": 10,
+        "max": 60,
+        "step": 2,
+        "unit": "px",
+        "label": "Inner Spacing padding Bottom",
+        "default": 20
       },
       {
         "type": "text",
