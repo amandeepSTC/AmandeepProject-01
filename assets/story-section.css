@@ -1,10 +1,10 @@
 .story-section {
-    padding: 60px 56px 0;
     background-color: #FFF9F6;
 }
 
-.story-section .local {
+.story-section .left-right-both{
     display: flex;
+    padding: 0px 20px;
 }
 
 .story-section .bottom-div {
@@ -16,12 +16,14 @@
 
 .story-section .left {
     flex: 1;
-    max-width: 576px;
+    display: flex;
+    justify-content: center;
+    max-width: 667px;
 }
 
 .story-section .left img,
 .story-section .left video {
-    width: 100%;
+    width: 90%;
     height: 672px;
     border-radius: 8px;
     object-fit: cover;
@@ -30,10 +32,7 @@
 
 .story-section .right {
     flex: 1;
-    max-width: 676px;
-    /* instead of width */
-    padding-left: 60px;
-    /* reduce a bit */
+    max-width: 667px;
 }
 
 .story-section .swiper {
@@ -41,7 +40,7 @@
     /* full width of parent */
     max-width: 680px;
     /* limit */
-    height: 200px !important;
+ 
     margin-top: 30px;
 }
 
@@ -61,7 +60,7 @@
     font-size: 19px;
 }
 
-.story-section .right button>span {
+.story-section .right button span {
     position: relative;
     top: 2px;
 }
@@ -80,22 +79,20 @@
     margin: 57px 0;
 }
 
-.story-section .swiper-slide>img {
+.story-section .swiper-slide img {
     width: 40px;
     height: 40px;
     margin-top: 5px;
 }
 
-.story-section .swiper-slide>h4 {
+.story-section .swiper-slide h4 {
     font-size: 18px;
     margin-top: 15px;
     margin-bottom: 10px;
 }
 
-.story-section .swiper-slide>p {
-    width: 322px;
+.story-section .swiper-slide p {
     text-align: center;
-    height: 72px;
     font-size: 14px;
     margin: 0;
 }
@@ -144,5 +141,69 @@
 .story-section .swiper-button-prev::after,
 .story-section .swiper-button-next::after {
     display: none;
+}
 
+/* Mobile devices 320px – 767px */
+@media (max-width: 767px) {
+  .story-section {
+    padding: 20px 14px 18px;
+  }
+  .story-section .flex-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .story-section .left-right-both {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .story-section .right {
+    padding-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .story-section .right h2 {
+    font-size: 22px;
+    position: relative;
+    bottom: 445px; /* careful: fixed height layouts break ho sakte */
+    text-align: center;
+  }
+
+  .story-section .right .text span {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .story-section .left img,
+  .story-section .left video {
+    width: 100%;
+    max-height: 390px;
+    border-radius: 10px;
+  }
+
+  .story-section .swiper-slide {
+    min-width: 200px;
+    padding: 12px;
+  }
+
+  .story-section .swiper-button-prev {
+    left: 6px;
+  }
+
+  .story-section .swiper-button-next {
+    right: 6px;
+  }
+
+  .story-section .right button {
+    padding: 10px 18px;
+    font-size: 15px;
+  }
+
+
+
+  .story-section .bottom-div img.bottom-icon {
+    max-width: 90px;
+  }
 }
