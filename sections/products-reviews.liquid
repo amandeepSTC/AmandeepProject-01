@@ -1,26 +1,25 @@
 {% comment %}
-  Product Reviews section
-  - Uses CSS variables for spacing so media queries can override mobile values
-  - Blocks: svg_image (image_picker), testimonial (textarea), reviewer_name (text), designation (text)
+  Product Reviews section (clean version)
+  - Fixed class names (no section.id)
+  - Liquid-based spacing (no CSS variables)
 {% endcomment %}
 
 <style>
-  /* Base spacing using CSS variables passed inline from Liquid */
-  .hero-{{ section.id }} {
-    margin-bottom: var(--pr-mb, 0);
-    padding-top: var(--pr-pt, 20px);
-    padding-bottom: var(--pr-pb, 20px);
+  .product-reviews {
+    margin-bottom: {{ section.settings.section_margin_bottom }}px;
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
     box-sizing: border-box;
     background: transparent;
   }
 
-  .hero-{{ section.id }} .container {
+  .product-reviews .container {
     max-width: 1180px;
     margin: 0 auto;
     padding: 0 20px;
   }
 
-  .hero-{{ section.id }} .heading {
+  .product-reviews .heading {
     text-align: center;
     font-size: 24px;
     font-weight: 700;
@@ -28,15 +27,14 @@
     color: #111;
   }
 
-  /* Grid for cards */
-  .hero-{{ section.id }} .reviews-grid {
+  .product-reviews .reviews-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     align-items: start;
   }
 
-  .hero-{{ section.id }} .review-card {
+  .product-reviews .review-card {
     background: #fff;
     border-radius: 12px;
     padding: 22px;
@@ -47,21 +45,21 @@
     min-height: 200px;
   }
 
-  .hero-{{ section.id }} .testimonial {
+  .product-reviews .testimonial {
     font-size: 14px;
     line-height: 1.5;
     color: #444;
     flex: 1 0 auto;
   }
 
-  .hero-{{ section.id }} .review-meta {
+  .product-reviews .review-meta {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-top: 6px;
   }
 
-  .hero-{{ section.id }} .review-avatar {
+  .product-reviews .review-avatar {
     width: 56px;
     height: 56px;
     border-radius: 999px;
@@ -74,88 +72,61 @@
     border: 1px solid rgba(0,0,0,0.04);
   }
 
-  .hero-{{ section.id }} .review-avatar img {
+  .product-reviews .review-avatar img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
 
-  .hero-{{ section.id }} .review-name {
+  .product-reviews .review-name {
     font-weight: 700;
     font-size: 14px;
     color: #111;
   }
 
-  .hero-{{ section.id }} .review-designation {
+  .product-reviews .review-designation {
     font-size: 12px;
     color: #9b9b9b;
     margin-top: 2px;
   }
 
-  /* small pagination dots (optional visual) */
-  .hero-{{ section.id }} .dots {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    margin-top: 18px;
-  }
-  .hero-{{ section.id }} .dots .dot {
-    width: 8px;
-    height: 8px;
-    background: #ddd;
-    border-radius: 50%;
-  }
-
-  /* Responsive */
   @media (max-width: 991px) {
-    .hero-{{ section.id }} .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+    .product-reviews .reviews-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 767px) {
-    .hero-{{ section.id }} {
-      margin-bottom: var(--pr-mb-mobile, var(--pr-mb, 0));
-      padding-top: var(--pr-pt-mobile, var(--pr-pt, 20px));
-      padding-bottom: var(--pr-pb-mobile, var(--pr-pb, 20px));
+    .product-reviews {
+      margin-bottom: {{ section.settings.section_margin_bottom_mobile }}px;
+      padding-top: {{ section.settings.section_padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_mobile }}px;
     }
 
-    .hero-{{ section.id }} .heading {
+    .product-reviews .heading {
       font-size: 20px;
       margin-bottom: 18px;
     }
 
-    .hero-{{ section.id }} .reviews-grid {
+    .product-reviews .reviews-grid {
       grid-template-columns: 1fr;
       gap: 16px;
     }
 
-    .hero-{{ section.id }} .review-card {
+    .product-reviews .review-card {
       padding: 16px;
     }
 
-    .hero-{{ section.id }} .review-avatar {
+    .product-reviews .review-avatar {
       width: 48px;
       height: 48px;
       flex: 0 0 48px;
     }
 
-    .hero-{{ section.id }} .testimonial { font-size: 13px; }
+    .product-reviews .testimonial { font-size: 13px; }
   }
 </style>
 
-<section
-  class="product-reviews hero-{{ section.id }}"
-  aria-label="Product Reviews"
-  role="region"
-  style="
-    --pr-mb: {{ section.settings.section_margin_bottom }}px;
-    --pr-pt: {{ section.settings.section_padding_top }}px;
-    --pr-pb: {{ section.settings.section_padding_bottom }}px;
-    --pr-mb-mobile: {{ section.settings.section_margin_bottom_mobile }}px;
-    --pr-pt-mobile: {{ section.settings.section_padding_top_mobile }}px;
-    --pr-pb-mobile: {{ section.settings.section_padding_bottom_mobile }}px;
-  "
->
+<section class="product-reviews" aria-label="Product Reviews" role="region">
   <div class="container">
     <!-- Heading -->
     <h2 class="heading">
@@ -167,52 +138,34 @@
       {% if section.blocks.size > 0 %}
         {% for block in section.blocks %}
           <article class="review-card" role="listitem">
-            {% if block.settings.svg_image != blank %}
-              <div class="testimonial">
-                <p>{{ block.settings.testimonial | escape }}</p>
-              </div>
+            <div class="testimonial">
+              <p>{{ block.settings.testimonial | escape }}</p>
+            </div>
 
-              <div class="review-meta">
-                <div class="review-avatar">
+            <div class="review-meta">
+              <div class="review-avatar">
+                {% if block.settings.svg_image != blank %}
                   {{ block.settings.svg_image | image_tag: alt: block.settings.reviewer_name }}
-                </div>
-                <div>
-                  <div class="review-name">{{ block.settings.reviewer_name }}</div>
-                  {% if block.settings.designation != blank %}
-                    <div class="review-designation">{{ block.settings.designation }}</div>
-                  {% endif %}
-                </div>
+                {% endif %}
               </div>
-            {% else %}
-              <!-- fallback if no image -->
-              <div class="testimonial">
-                <p>{{ block.settings.testimonial | escape }}</p>
+              <div>
+                <div class="review-name">{{ block.settings.reviewer_name }}</div>
+                {% if block.settings.designation != blank %}
+                  <div class="review-designation">{{ block.settings.designation }}</div>
+                {% endif %}
               </div>
-              <div class="review-meta">
-                <div class="review-avatar" aria-hidden="true">
-                  <!-- empty circle -->
-                </div>
-                <div>
-                  <div class="review-name">{{ block.settings.reviewer_name }}</div>
-                  {% if block.settings.designation != blank %}
-                    <div class="review-designation">{{ block.settings.designation }}</div>
-                  {% endif %}
-                </div>
-              </div>
-            {% endif %}
+            </div>
           </article>
         {% endfor %}
       {% else %}
-        <!-- Placeholder / demo items when no blocks added -->
+        <!-- Fallback demo items -->
         {% for i in (1..3) %}
           <article class="review-card" role="listitem">
             <div class="testimonial">
               <p>“This product is amazing — gives a natural glow and great texture.”</p>
             </div>
             <div class="review-meta">
-              <div class="review-avatar" aria-hidden="true">
-                <!-- small placeholder -->
-              </div>
+              <div class="review-avatar"></div>
               <div>
                 <div class="review-name">Kanika Kapoor</div>
                 <div class="review-designation">Designer</div>
@@ -222,19 +175,13 @@
         {% endfor %}
       {% endif %}
     </div>
-
-    <!-- optional dots area -->
-    <div class="dots" aria-hidden="true">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
   </div>
 </section>
 
 {% schema %}
 {
   "name": "Product Reviews",
+  "tag": "section",
   "settings": [
     {
       "type": "text",
@@ -280,7 +227,7 @@
       "step": 5,
       "unit": "px",
       "label": "Section margin-bottom (mobile)",
-      "default": 12
+      "default": 10
     },
     {
       "type": "range",
@@ -311,7 +258,7 @@
         {
           "type": "image_picker",
           "id": "svg_image",
-          "label": "Avatar / SVG image"
+          "label": "Image"
         },
         {
           "type": "textarea",
@@ -338,7 +285,8 @@
   "presets": [
     {
       "name": "Product Reviews",
-      "category": "Testimonials"
+      "category": "Testimonials",
+      "settings": {}
     }
   ]
 }
