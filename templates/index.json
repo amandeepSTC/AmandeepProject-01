@@ -43,7 +43,12 @@
       ],
       "name": "Random Hero Section",
       "settings": {
-        "margin_bottom": 10
+        "section_margin_bottom": 0,
+        "section_padding_top": 10,
+        "section_padding_bottom": 10,
+        "section_margin_bottom_mobile": 0,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20
       }
     },
     "get_started_8nV6B8": {
@@ -82,6 +87,12 @@
       ],
       "name": "Get Started Section",
       "settings": {
+        "section_margin_bottom": 0,
+        "section_padding_top": 10,
+        "section_padding_bottom": 10,
+        "section_margin_bottom_mobile": 0,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20,
         "margin_bottom": 10,
         "top_title": ""
       }
@@ -142,7 +153,12 @@
       ],
       "name": "good Section",
       "settings": {
-        "margin_bottom": 10,
+        "section_margin_bottom": 0,
+        "section_padding_top": 10,
+        "section_padding_bottom": 10,
+        "section_margin_bottom_mobile": 0,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20,
         "top_title": "Make a Good Choice"
       }
     },
@@ -217,7 +233,12 @@
       ],
       "name": "Skincare Essentials",
       "settings": {
-        "margin_bottom": 10,
+        "section_margin_bottom": 0,
+        "section_padding_top": 10,
+        "section_padding_bottom": 10,
+        "section_margin_bottom_mobile": 0,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20,
         "heading_top": "SKINCARE",
         "heading_main": "ESSENTIALS"
       }
@@ -272,14 +293,24 @@
       ],
       "name": "Shop Collection",
       "settings": {
-        "margin_bottom": 10
+        "section_margin_bottom": 0,
+        "section_padding_top": 10,
+        "section_padding_bottom": 10,
+        "section_margin_bottom_mobile": 0,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20
       }
     },
     "random_hero_section_X4DqyW": {
       "type": "random-hero-section",
       "name": "random-hero-section",
       "settings": {
-        "margin_bottom": 10
+        "section_margin_bottom": 0,
+        "section_padding_top": 10,
+        "section_padding_bottom": 10,
+        "section_margin_bottom_mobile": 0,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20
       }
     },
     "bestseller_slider_JwNFpC": {
@@ -332,7 +363,12 @@
       ],
       "name": "Bestseller Collections",
       "settings": {
-        "margin_bottom": 80,
+        "section_margin_bottom": 0,
+        "section_padding_top": 10,
+        "section_padding_bottom": 10,
+        "section_margin_bottom_mobile": 0,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20,
         "heading": "Love Your Skin With Our Bestsellers",
         "text": "A skincare line crafted to perfection for 50 years",
         "button_text": "Shop All",
@@ -386,7 +422,12 @@
       ],
       "name": "Our story",
       "settings": {
-        "margin_bottom": 50,
+        "section_margin_bottom": 0,
+        "section_padding_top": 10,
+        "section_padding_bottom": 10,
+        "section_margin_bottom_mobile": 0,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20,
         "section_video": "shopify://files/videos/mov_bbb.mp4",
         "section_image": "shopify://shop_images/image_33.jpg",
         "section_heading": "Know Our Story",
@@ -396,6 +437,19 @@
         "Icon_one": "shopify://shop_images/Group_240856.png",
         "Icon_two": "shopify://shop_images/Group_240857.png",
         "Icon_three": "shopify://shop_images/Group_240858_2.png"
+      }
+    },
+    "products_reviews_BXfXgg": {
+      "type": "products-reviews",
+      "name": "Product Reviews",
+      "settings": {
+        "section_heading": "Product Reviews",
+        "section_margin_bottom": 20,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_margin_bottom_mobile": 10,
+        "section_padding_top_mobile": 18,
+        "section_padding_bottom_mobile": 18
       }
     }
   },
@@ -407,6 +461,7 @@
     "shop_collection_RQLKBr",
     "random_hero_section_X4DqyW",
     "bestseller_slider_JwNFpC",
-    "story_section_FqY3An"
+    "story_section_FqY3An",
+    "products_reviews_BXfXgg"
   ]
 }
