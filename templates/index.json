@@ -441,6 +441,40 @@
     },
     "products_reviews_BXfXgg": {
       "type": "products-reviews",
+      "blocks": {
+        "review_fT7W34": {
+          "type": "review",
+          "settings": {
+            "svg_image": "shopify://shop_images/Love_Hair_Beauty_Packaging_by_Emmygination_1.png",
+            "testimonial": "“I absolutely love this product; it gave my skin a wonderful glow.”",
+            "reviewer_name": "Kanika Kapoor",
+            "designation": "Designer"
+          }
+        },
+        "review_Q3iTKg": {
+          "type": "review",
+          "settings": {
+            "svg_image": "shopify://shop_images/Love_Hair_Beauty_Packaging_by_Emmygination_1.png",
+            "testimonial": "“I absolutely love this product; it gave my skin a wonderful glow.”",
+            "reviewer_name": "Kanika Kapoor",
+            "designation": "Designer"
+          }
+        },
+        "review_iUyJri": {
+          "type": "review",
+          "settings": {
+            "svg_image": "shopify://shop_images/Love_Hair_Beauty_Packaging_by_Emmygination_1.png",
+            "testimonial": "“I absolutely love this product; it gave my skin a wonderful glow.”",
+            "reviewer_name": "Kanika Kapoor",
+            "designation": "Designer"
+          }
+        }
+      },
+      "block_order": [
+        "review_fT7W34",
+        "review_Q3iTKg",
+        "review_iUyJri"
+      ],
       "name": "Product Reviews",
       "settings": {
         "section_heading": "Product Reviews",
